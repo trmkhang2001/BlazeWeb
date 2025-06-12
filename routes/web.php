@@ -24,27 +24,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Khang
-Route::controller(ClientsController::class)->group(function () {
-    Route::get('/', 'index')->name('client.page.home.index');
-    Route::get('/product', 'page_product')->name('client.page.product');
-    Route::get('/product/{id}', 'detail')->name('client.page.detail');
-    Route::get('/cart', 'cart')->name('client.page.cart');
-    Route::post('/cart/add', 'addToCart')->name('client.add.cart');
-    Route::put('/cart/update', 'updateCart')->name('client.update.cart');
-    Route::delete('/cart/remove', 'removeItem')->name('client.remove.cart');
-    Route::delete('/cart/clear', 'clearCart')->name('client.clear.cart');
-    Route::get('/cart/checkout', 'checkOut')->name('client.cart.checkout');
-    Route::post('/cart/checkout', 'order');
-    Route::get('/order', 'order_list');
-    Route::get('/order_cancel/{id}', 'cancel_order')->name('client.order.cancel');
-    Route::get('/order/{id}', 'order_detail')->name('client.order.detail');
-    Route::get('/nopermision', 'nopermision')->name('nopermision');
-    Route::get('/about', 'about');
-    Route::get('/addinfoship', 'add_info_ship');
-    Route::post('/addinfoship', 'post_info');
-    Route::get('/info/{id}', 'delete_info')->name('client.delete.info');
-    Route::get('/createVNPAY/{id}/{amout}', 'createVNPAY')->name('request.pay');
-    Route::get('/vnpay_return', 'returnVNPAY');
+// Route::controller(ClientsController::class)->group(function () {
+//     Route::get('/', 'index')->name('client.page.home.index');
+//     Route::get('/product', 'page_product')->name('client.page.product');
+//     Route::get('/product/{id}', 'detail')->name('client.page.detail');
+//     Route::get('/cart', 'cart')->name('client.page.cart');
+//     Route::post('/cart/add', 'addToCart')->name('client.add.cart');
+//     Route::put('/cart/update', 'updateCart')->name('client.update.cart');
+//     Route::delete('/cart/remove', 'removeItem')->name('client.remove.cart');
+//     Route::delete('/cart/clear', 'clearCart')->name('client.clear.cart');
+//     Route::get('/cart/checkout', 'checkOut')->name('client.cart.checkout');
+//     Route::post('/cart/checkout', 'order');
+//     Route::get('/order', 'order_list');
+//     Route::get('/order_cancel/{id}', 'cancel_order')->name('client.order.cancel');
+//     Route::get('/order/{id}', 'order_detail')->name('client.order.detail');
+//     Route::get('/nopermision', 'nopermision')->name('nopermision');
+//     Route::get('/about', 'about');
+//     Route::get('/addinfoship', 'add_info_ship');
+//     Route::post('/addinfoship', 'post_info');
+//     Route::get('/info/{id}', 'delete_info')->name('client.delete.info');
+//     Route::get('/createVNPAY/{id}/{amout}', 'createVNPAY')->name('request.pay');
+//     Route::get('/vnpay_return', 'returnVNPAY');
+// });
+Route::get('/', function () {
+    return view('home');
 });
 Route::controller(AuthController::class)->group(function () {
     Route::get('login', 'login')->name('login');
