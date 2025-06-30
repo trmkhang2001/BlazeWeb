@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Home')
+@section('title','Sale Blaze - The Best Coupons, Promo Codes & Cash Back Offers')
 @section('content')
 <main>
     <section class="w-full overflow-hidden">
