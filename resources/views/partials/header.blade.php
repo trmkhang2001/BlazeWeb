@@ -1,6 +1,6 @@
 <nav class=" container relative flex h-16 max-w-screen-xl items-center py-4">
   <a class="mr-1 lg:mr-4 order-1" href="" aria-label="RetailMeNot home">
-    <img src="/imagery/c2.png"  fill="currentColor" alt="" class=" hidden  md:inline-block">
+    <img src="/imagery/C2.png"  fill="currentColor" alt="" class=" md:inline-block">
      </a>
   <div class="order-4 text-base md:ml-0 lg:order-2 lg:text-sm">
     <button class="ml-4 cursor-pointer lg:hidden" aria-label="Open Menu">
