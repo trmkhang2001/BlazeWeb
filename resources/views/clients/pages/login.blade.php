@@ -72,10 +72,10 @@
                                         </div>
                                     </form>
                                     <hr>
-                                    <div class="text-center">
+                                    {{-- <div class="text-center">
                                         <a class="small fw-bold" href="{{ route('register') }}">Bạn chưa có tài khoản ? Đăng
                                             ký !</a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
             </div>
         </div>
         <div class="copyright text-center my-auto">
-            <span>Copyright © Minh Khang 2023</span>
+            <span>Copyright © Minh Khang 2025</span>
         </div>
     </div>
 @endsection

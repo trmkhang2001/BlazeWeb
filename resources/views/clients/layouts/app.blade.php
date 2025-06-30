@@ -11,17 +11,17 @@
     <meta name="theme-color" content="#e87316">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="MK Computer">
+    <meta name="apple-mobile-web-app-title" content="Affiliate Program">
     <meta name="msapplication-TileImage" content="assets/images/favicon.ico">
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="MK Computer">
-    <meta name="keywords" content="MK Computer">
-    <meta name="author" content="MK Computer">
+    <meta name="description" content="Affiliate Program">
+    <meta name="keywords" content="Affiliate Program">
+    <meta name="author" content="Affiliate Program">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
-    <title>MK Computer</title>
+    <title>Affiliate Program</title>
 
     {{-- Boostrap 5 --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -167,9 +167,9 @@
             }
         }
     </style>
-    @include('clients.layouts.header')
+    {{-- @include('clients.layouts.header') --}}
     @yield('contents')
-    @include('clients.layouts.footer')
+    {{-- @include('clients.layouts.footer') --}}
     <div class="tap-to-top">
         <a href="#home">
             <i class="fas fa-chevron-up"></i>
