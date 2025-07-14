@@ -68,6 +68,7 @@ License: For each use you must have a valid license purchased only from above li
             document.documentElement.setAttribute("data-bs-theme", themeMode);
         }
     </script>
+    <script src="https://cdn.ckeditor.com/4.21.0/full/ckeditor.js"></script>
     <!--end::Theme mode setup on page load-->
 </head>
 <!--end::Head-->

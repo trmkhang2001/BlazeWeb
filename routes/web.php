@@ -60,14 +60,11 @@ Route::controller(AuthController::class)->group(function () {
 Route::middleware('auth', 'user-role')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('admin.page.dashboard');
-        Route::controller(CategoryController::class)->prefix('/category')->group(function () {
-            Route::get('/', 'index')->name('admin.page.category.index');
-            Route::get('/add', 'create')->name('admin.page.category.create');
-            Route::post('/add',  'store');
-            Route::get('/update/{id}', 'edit')->name('admin.page.category.edit');
-            Route::post('/update/{id}',  'update');
-            Route::delete('/{id}',  'destroy')->name('admin.page.category.delete')->middleware('admin');
-        });
+        Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+        Route::resource('deal-stores', \App\Http\Controllers\Admin\DealStoreController::class);
+        Route::resource('offers', \App\Http\Controllers\Admin\OfferController::class);
+        Route::resource('deals', \App\Http\Controllers\Admin\DealController::class);
+        Route::resource('news', \App\Http\Controllers\Admin\NewsController::class);
         Route::controller(PromotionController::class)->prefix('/promotion')->group(function () {
             Route::get('/', 'index')->name('admin.page.promotion.index');
             Route::get('/add', 'create')->name('admin.page.promotion.create');

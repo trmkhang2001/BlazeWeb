@@ -4,29 +4,30 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
     use HasFactory;
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    public function product()
-    {
-        return $this->hasMany(Product::class);
-    }
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::deleting(function ($category) {
-            $category->product()->delete();
-        });
-    }
     protected $fillable = [
         'name',
+        'slug',
+        'sort_order',
+        'parent_id',
+        'image',
+        'is_visible',
+        'description',
+        'meta_title',
+        'meta_keywords',
+        'meta_description',
     ];
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Category::class, 'parent_id');
+    }
 }

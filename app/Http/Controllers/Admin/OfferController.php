@@ -1,0 +1,75 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\DealStore;
+use App\Models\Offer;
+use Illuminate\Http\Request;
+
+class OfferController extends Controller
+{
+    public function index()
+    {
+        $offers = Offer::with('store')->latest()->paginate(10);
+        return view('admin.offers.index', compact('offers'));
+    }
+
+    public function create()
+    {
+        $stores = DealStore::all();
+        return view('admin.offers.form', compact('stores'));
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|string',
+            'offer' => 'nullable|string',
+            'code' => 'nullable|string',
+            'url' => 'nullable|url',
+            'store_id' => 'required|exists:deal_stores,id',
+            'description' => 'nullable|string',
+            'is_verified' => 'nullable|boolean',
+            'is_approved' => 'nullable|boolean',
+        ]);
+
+        $data['is_verified'] = $request->has('is_verified');
+        $data['is_approved'] = $request->has('is_approved');
+
+        Offer::create($data);
+        return redirect()->route('offers.index')->with('success', 'Thêm offer thành công');
+    }
+
+    public function edit(Offer $offer)
+    {
+        $stores = DealStore::all();
+        return view('admin.offers.form', compact('offer', 'stores'));
+    }
+
+    public function update(Request $request, Offer $offer)
+    {
+        $data = $request->validate([
+            'name' => 'required|string',
+            'offer' => 'nullable|string',
+            'code' => 'nullable|string',
+            'url' => 'nullable|url',
+            'store_id' => 'required|exists:deal_stores,id',
+            'description' => 'nullable|string',
+            'is_verified' => 'nullable|boolean',
+            'is_approved' => 'nullable|boolean',
+        ]);
+
+        $data['is_verified'] = $request->has('is_verified');
+        $data['is_approved'] = $request->has('is_approved');
+
+        $offer->update($data);
+        return redirect()->route('offers.index')->with('success', 'Cập nhật offer thành công');
+    }
+
+    public function destroy(Offer $offer)
+    {
+        $offer->delete();
+        return back()->with('success', 'Xóa offer thành công');
+    }
+}

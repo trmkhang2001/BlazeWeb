@@ -40,22 +40,22 @@
             </div>
             <div class="col">
                 <div class="card p-5 mx-0">
-                    <h3>Người dùng: {{ $report['countUser'] }}</h3>
+                    <h3>Người dùng: </h3>
                 </div>
             </div>
             <div class="col">
                 <div class="card p-5 mx-0">
-                    <h3>Đơn hàng: {{ $report['countOrder'] }} đơn </h3>
+                    <h3>Đơn hàng:  đơn </h3>
                 </div>
             </div>
             <div class="col">
                 <div class="card p-5 mx-0">
-                    <h3>Sản phẩm : {{ $report['countProduct'] }}</h3>
+                    <h3>Sản phẩm :</h3>
                 </div>
             </div>
             <div class="col">
                 <div class="card p-5 mx-0">
-                    <h3>Danh mục: {{ $report['countCategory'] }}</h3>
+                    <h3>Danh mục: </h3>
                 </div>
             </div>
         </div>
@@ -120,63 +120,3 @@
         <!--end::Row-->
     </div>
 @endsection
-@push('scripts')
-    <script>
-        <?php if($chartSP) { ?>
-        // chart colors
-        var colors = ['#3E97FF', '#E1E3EA', '#70FD8A'];
-        /* bar chart */
-        var chBar = document.getElementById("chBar");
-        if (chBar) {
-            new Chart(chBar, {
-                type: 'bar',
-                data: {
-                    labels: <?= json_encode($chartSP['label']) ?>,
-                    datasets: [{
-                        label: 'Đơn hàng',
-                        data: <?= json_encode($chartSP['data']) ?>,
-                        backgroundColor: colors[0]
-                    }]
-
-                },
-                options: {
-                    plugins: {
-                        legend: {
-                            display: false,
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            barPercentage: 0.4,
-                            categoryPercentage: 0.5
-                        }]
-                    }
-                }
-            });
-        }
-        <?php } ?>
-        //doughnut
-        <?php if($chartOrders) { ?>
-        var ctxD = document.getElementById("doughnutChart");
-        var myLineChart = new Chart(ctxD, {
-            type: 'doughnut',
-            data: {
-                labels: ['Đơn hàng đã hủy', 'Đơn hàng đang chuyển', 'Đơn hàng thành công'],
-                datasets: [{
-                    data: <?= json_encode($chartOrders) ?>,
-                    backgroundColor: ["#f1416c", "#009ef7", "#50cd89"],
-                    hoverBackgroundColor: ["#f1416c", "#009ef7", "#50cd89"]
-                }]
-            },
-            options: {
-                plugins: {
-                    legend: {
-                        position: 'bottom'
-                    }
-                },
-                responsive: true
-            }
-        });
-        <?php } ?>
-    </script>
-@endpush

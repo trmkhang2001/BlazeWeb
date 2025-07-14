@@ -72,10 +72,10 @@
                                         </div>
                                     </form>
                                     <hr>
-                                    {{-- <div class="text-center">
+                                    <div class="text-center">
                                         <a class="small fw-bold" href="{{ route('register') }}">Bạn chưa có tài khoản ? Đăng
                                             ký !</a>
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
