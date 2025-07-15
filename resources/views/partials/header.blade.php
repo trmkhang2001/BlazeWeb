@@ -1,5 +1,5 @@
 <nav class=" container relative flex h-16 max-w-screen-xl items-center py-4">
-    <a class="mr-1 lg:mr-4 order-1" href="" aria-label="CouponOnTop home">
+    <a class="mr-1 lg:mr-4 order-1" href="/" aria-label="CouponOnTop home">
         <img src="/imagery/C2.png" fill="currentColor" alt="" class="h-32 w-auto md:inline-block">
     </a>
     <div class="order-4 text-base md:ml-0 lg:order-2 lg:text-sm" x-data="{ openMenu: null }">
