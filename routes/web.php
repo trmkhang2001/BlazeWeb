@@ -49,6 +49,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/view', function () {
+    return view('view');
+});
 Route::controller(AuthController::class)->group(function () {
     Route::get('login', 'login')->name('login');
     Route::post('login', 'loginAction')->name('login.action');
@@ -60,7 +63,7 @@ Route::controller(AuthController::class)->group(function () {
 Route::middleware('auth', 'user-role')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('admin.page.dashboard');
-        Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+        Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
         Route::resource('deal-stores', \App\Http\Controllers\Admin\DealStoreController::class);
         Route::resource('offers', \App\Http\Controllers\Admin\OfferController::class);
         Route::resource('deals', \App\Http\Controllers\Admin\DealController::class);

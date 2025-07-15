@@ -12,9 +12,20 @@ class DealStoreController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $stores = DealStore::with('category')->latest()->paginate(10);
+        $query = DealStore::with('category');
+
+        if ($request->filled('keyword')) {
+            $keyword = $request->input('keyword');
+            $query->where(function ($q) use ($keyword) {
+                $q->where('name', 'like', "%$keyword%")
+                    ->orWhere('slug', 'like', "%$keyword%");
+            });
+        }
+
+        $stores = $query->latest()->paginate(10);
+
         return view('admin.deal-store.index', compact('stores'));
     }
 

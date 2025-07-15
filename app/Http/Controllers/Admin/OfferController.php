@@ -9,9 +9,20 @@ use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $offers = Offer::with('store')->latest()->paginate(10);
+        $query = Offer::with('store');
+
+        if ($request->filled('keyword')) {
+            $keyword = $request->input('keyword');
+            $query->where(function ($q) use ($keyword) {
+                $q->where('name', 'like', "%$keyword%")
+                    ->orWhere('slug', 'like', "%$keyword%");
+            });
+        }
+
+        $offers = $query->latest()->paginate(10);
+
         return view('admin.offers.index', compact('offers'));
     }
 

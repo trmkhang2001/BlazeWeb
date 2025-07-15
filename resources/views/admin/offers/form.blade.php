@@ -65,7 +65,7 @@
                 <div class="form-check form-switch mb-4">
                     <input class="form-check-input" type="checkbox" name="is_approved" value="1"
                         {{ old('is_approved', $offer->is_approved ?? false) ? 'checked' : '' }}>
-                    <label class="form-check-label">Duyệt</label>
+                    <label class="form-check-label">Hiển thị</label>
                 </div>
 
                 <div class="d-flex justify-content-end">

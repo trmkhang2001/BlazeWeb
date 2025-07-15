@@ -9,9 +9,20 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $news = News::latest()->paginate(10);
+        $query = News::query();
+
+        if ($request->filled('keyword')) {
+            $keyword = $request->input('keyword');
+            $query->where(function ($q) use ($keyword) {
+                $q->where('title', 'like', "%$keyword%")
+                    ->orWhere('slug', 'like', "%$keyword%");
+            });
+        }
+
+        $news = $query->latest()->paginate(10);
+
         return view('admin.news.index', compact('news'));
     }
 

@@ -1,5 +1,22 @@
 @extends('admin.layouts.app')
-
+@section('title_page')
+    <div class="app-navbar-item ms-1 ms-md-3">
+        <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                Store
+            </h1>
+            <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                <li class="breadcrumb-item text-muted">
+                    <a href="/admin/dashboard" class="text-muted text-hover-primary">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                </li>
+                <li class="breadcrumb-item text-muted">Store</li>
+            </ul>
+        </div>
+    </div>
+@endsection
 @section('contents')
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
@@ -8,7 +25,28 @@
                 <i class="ki-duotone ki-plus fs-2"></i> Thêm mới
             </a>
         </div>
-
+        <div class="mt-5 ms-4">
+            <!--begin::Search Form-->
+            <form method="GET" action="{{ route('deal-stores.index') }}" class="mb-5">
+                <div class="d-flex align-items-center position-relative">
+                    <span class="svg-icon svg-icon-1 position-absolute ms-4">
+                        <i class="ki-duotone ki-magnifier fs-1 text-muted"></i>
+                    </span>
+                    <input type="text" name="keyword" value="{{ request('keyword') }}"
+                        class="form-control form-control-solid w-250px ps-14"
+                        placeholder="Tìm theo tên hoặc slug cửa hàng..." />
+                    <button type="submit" class="btn btn-light-primary ms-3">
+                        <i class="ki-duotone ki-search-list fs-2"></i> Tìm kiếm
+                    </button>
+                    @if (request()->has('keyword') && request('keyword') != '')
+                        <a href="{{ route('deal-stores.index') }}" class="btn btn-light-danger ms-2">
+                            <i class="ki-duotone ki-cross fs-2"></i> Xóa tìm
+                        </a>
+                    @endif
+                </div>
+            </form>
+            <!--end::Search Form-->
+        </div>
         <div class="card-body">
             @if (session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
@@ -24,7 +62,7 @@
                             <th>Danh mục</th>
                             <th>Events</th>
                             <th>Ảnh</th>
-                            <th>Duyệt</th>
+                            <th>Hiển thị</th>
                             <th class="text-end">Hành động</th>
                         </tr>
                     </thead>
@@ -43,9 +81,9 @@
                                 </td>
                                 <td>
                                     @if ($store->is_approved)
-                                        <span class="badge badge-light-success">Đã duyệt</span>
+                                        <span class="badge badge-light-success">Hiển thị</span>
                                     @else
-                                        <span class="badge badge-light-secondary">Chưa duyệt</span>
+                                        <span class="badge badge-light-secondary">Không hiển thị</span>
                                     @endif
                                 </td>
                                 <td class="text-end">

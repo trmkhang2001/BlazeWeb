@@ -36,6 +36,25 @@
             </div>
 
             <!--begin::Body-->
+            <!--begin::Search Form-->
+            <form method="GET" action="{{ route('categories.index') }}" class="mb-5 ms-4">
+                <div class="d-flex align-items-center position-relative">
+                    <span class="svg-icon svg-icon-1 position-absolute ms-4">
+                        <i class="ki-duotone ki-magnifier fs-1 text-muted"></i>
+                    </span>
+                    <input type="text" name="keyword" value="{{ request('keyword') }}"
+                        class="form-control form-control-solid w-250px ps-14" placeholder="Tìm theo tên hoặc slug..." />
+                    <button type="submit" class="btn btn-light-primary ms-3">
+                        <i class="ki-duotone ki-search-list fs-2"></i> Tìm kiếm
+                    </button>
+                    @if (request()->has('keyword') && request('keyword') != '')
+                        <a href="{{ route('categories.index') }}" class="btn btn-light-danger ms-2">
+                            <i class="ki-duotone ki-cross fs-2"></i> Xóa tìm
+                        </a>
+                    @endif
+                </div>
+            </form>
+            <!--end::Search Form-->
             <div class="card-body py-3">
                 @if (session('success'))
                     <div class="alert alert-success">{{ session('success') }}</div>

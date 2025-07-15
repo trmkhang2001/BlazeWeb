@@ -71,7 +71,7 @@
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" name="is_approved" value="1"
                                 {{ old('is_approved', $deal_store->is_approved ?? false) ? 'checked' : '' }}>
-                            <label class="form-check-label">Duyệt bài</label>
+                            <label class="form-check-label">Hiển thị</label>
                         </div>
                     </div>
 

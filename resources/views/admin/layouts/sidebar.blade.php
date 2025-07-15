@@ -11,7 +11,7 @@
                         class="h-25px " />
                 </div>
                 <div class="app-sidebar-logo-default">
-                    <h2 class="ms-5" style="color: white">Trang Admin</h2>
+                    <h2 class="ms-5" style="color: white">Admin</h2>
                 </div>
             </div>
             <img alt="Logo" src="{{ asset('admin_assets/media/logos/default-dark.svg') }}"
@@ -42,9 +42,9 @@
             <!--begin::Menu-->
             <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu"
                 data-kt-menu="true" data-kt-menu-expand="false">
-                <!--begin:Menu item-->
+
                 <div class="menu-item here show menu-accordion">
-                    <!--begin:Menu link-->
+
                     <a href="/admin" class="menu-link active">
                         <span class="menu-icon">
                             <i class="ki-duotone ki-element-11 fs-2">
@@ -56,59 +56,113 @@
                         </span>
                         <span class="menu-title">Dashboards</span>
                     </a>
-                    <!--end:Menu link-->
+
                 </div>
                 <div class="menu-item pt-5"><!--begin:Menu content-->
                     <div class="menu-content"><span class="menu-heading fw-bold text-uppercase fs-7">Blaze Aff</span>
                     </div>
                     <!--end:Menu content-->
                 </div>
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion"><!--begin:Menu link--><span
-                        class="menu-link"><span class="menu-icon"><i class="ki-duotone ki-basket fs-2"><span
-                                    class="path1"></span><span class="path2"></span><span class="path3"></span><span
+                {{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion"><span class="menu-link"><span
+                            class="menu-icon"><i class="ki-duotone ki-basket fs-2"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span><span
                                     class="path4"></span></i></span><span class="menu-title">Quản lý coupon</span><span
-                            class="menu-arrow"></span></span><!--end:Menu link-->
-                    <!--begin:Menu sub-->
+                            class="menu-arrow"></span></span>
                     <div class="menu-sub menu-sub-accordion" kt-hidden-height="251"
                         style="display: none; overflow: hidden;">
-                        <!--begin:Menu item-->
+
                         <div class="menu-item">
-                            <!--begin:Menu link--><a class="menu-link" href="{{ route('categories.index') }}"><span
-                                    class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                    class="menu-title">Quản lý danh mục</span></a><!--end:Menu link-->
+                            <a class="menu-link" href="{{ route('categories.index') }}"><span class="menu-bullet"><span
+                                        class="bullet bullet-dot"></span></span><span class="menu-title">Quản lý danh
+                                    mục</span></a>
                         </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
+
+
                         <div class="menu-item">
-                            <!--begin:Menu link--><a class="menu-link" href="{{ route('deal-stores.index') }}"><span
-                                    class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                    class="menu-title">Quản lý Store</span></a><!--end:Menu link-->
+                            <a class="menu-link" href="{{ route('deal-stores.index') }}"><span class="menu-bullet"><span
+                                        class="bullet bullet-dot"></span></span><span class="menu-title">Quản lý
+                                    Store</span></a>
                         </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
+
+
                         <div class="menu-item">
-                            <!--begin:Menu link--><a class="menu-link" href="{{ route('offers.index') }}"><span
-                                    class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                    class="menu-title">Quản lý Offer</span></a><!--end:Menu link-->
+                            <a class="menu-link" href="{{ route('offers.index') }}"><span class="menu-bullet"><span
+                                        class="bullet bullet-dot"></span></span><span class="menu-title">Quản lý
+                                    Offer</span></a>
                         </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
+
+
                         <div class="menu-item">
-                            <!--begin:Menu link--><a class="menu-link" href="{{ route('deals.index') }}"><span
-                                    class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                    class="menu-title">Quản lý Deals</span></a><!--end:Menu link-->
+                            <a class="menu-link" href="{{ route('deals.index') }}"><span class="menu-bullet"><span
+                                        class="bullet bullet-dot"></span></span><span class="menu-title">Quản lý
+                                    Deals</span></a>
                         </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
+
+
                         <div class="menu-item">
-                            <!--begin:Menu link--><a class="menu-link" href="{{ route('news.index') }}"><span
-                                    class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                    class="menu-title">Quản lý Tin Tức</span></a><!--end:Menu link-->
+                            <a class="menu-link" href="{{ route('news.index') }}"><span class="menu-bullet"><span
+                                        class="bullet bullet-dot"></span></span><span class="menu-title">Quản lý Tin
+                                    Tức</span></a>
                         </div>
-                        <!--end:Menu item-->
-                    </div><!--end:Menu sub-->
+
+                    </div>
+                </div> --}}
+                <!-- Quản lý Danh Mục -->
+                <div class="menu-item">
+                    <a class="menu-link" href="{{ route('categories.index') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-category fs-2"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </span>
+                        <span class="menu-title">Quản lý Danh Mục</span>
+                    </a>
                 </div>
-                <!--end:Menu item-->
+
+                <!-- Quản lý Store -->
+                <div class="menu-item">
+                    <a class="menu-link" href="{{ route('deal-stores.index') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-shop fs-2"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </span>
+                        <span class="menu-title">Quản lý Store</span>
+                    </a>
+                </div>
+
+                <!-- Quản lý Offer -->
+                <div class="menu-item">
+                    <a class="menu-link" href="{{ route('offers.index') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-discount fs-2"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </span>
+                        <span class="menu-title">Quản lý Offer</span>
+                    </a>
+                </div>
+
+                <!-- Quản lý Deals -->
+                <div class="menu-item">
+                    <a class="menu-link" href="{{ route('deals.index') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-basket fs-2"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </span>
+                        <span class="menu-title">Quản lý Deals</span>
+                    </a>
+                </div>
+
+                <!-- Quản lý Tin Tức -->
+                <div class="menu-item">
+                    <a class="menu-link" href="{{ route('news.index') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-document fs-2"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                        </span>
+                        <span class="menu-title">Quản lý Tin Tức</span>
+                    </a>
+                </div>
+
+
             </div>
             <!--end::Menu-->
         </div>
