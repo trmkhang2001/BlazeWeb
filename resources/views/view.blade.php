@@ -92,17 +92,24 @@
                                     {{-- CTA Show Code (click = mở tab + modal) --}}
                                     <div
                                         class="col-span-2 mt-3 flex justify-end md:col-start-3 md:row-span-3 md:row-start-1 md:my-auto md:mt-0 md:justify-end">
-                                        <button type="button"
+                                        @php
+                                            $popupUrl = route('view.index', [
+                                                'slug' => $deal->slug,
+                                                'show' => $offer->id,
+                                            ]);
+                                        @endphp
+                                        <a href="{{ $offer->url }}"
                                             class="relative mb-2 px-5 flex h-10 min-w-[120px] items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-sm font-bold leading-none tracking-wider text-white
-                                               md:h-12 md:text-base
-                                               before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300
-                                               after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30"
-                                            data-offer-show data-offer-id="{{ $offer->id }}"
-                                            data-offer-code="{{ $offer->code }}" data-offer-name="{{ $offer->offer }}"
-                                            data-offer-url="{{ $offer->url }}" data-store-name="{{ $deal->name }}"
+                                                   md:h-12 md:text-base
+                                                   before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300
+                                                   after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30"
+                                            rel="nofollow sponsored noopener" data-offer-show
+                                            data-offer-id="{{ $offer->id }}" data-offer-code="{{ $offer->code }}"
+                                            data-offer-name="{{ $offer->offer }}" data-offer-url="{{ $offer->url }}"
+                                            data-popup-url="{{ $popupUrl }}" data-store-name="{{ $deal->name }}"
                                             data-store-logo="{{ asset('storage/' . $deal->image) }}">
                                             Show Code
-                                        </button>
+                                        </a>
                                     </div>
 
                                 </div>
@@ -183,13 +190,13 @@
             let currentCode = '';
 
             function openModal(data) {
-                logoEl.src = data.logo;
-                storeEl.textContent = data.store;
-                titleEl.textContent = data.offerName;
-                codeEl.textContent = data.code;
-                shopLink.href = data.url;
-                shopLink.textContent = data.store;
-                currentCode = data.code;
+                logoEl.src = data.logo || '';
+                storeEl.textContent = data.store || '';
+                titleEl.textContent = data.offerName || '';
+                codeEl.textContent = data.code || '';
+                shopLink.href = data.url || '#';
+                shopLink.textContent = data.store || 'Shop';
+                currentCode = data.code || '';
 
                 codeWrap.style.display = currentCode ? '' : 'none';
 
@@ -216,37 +223,62 @@
                 if (e.target === modal) closeModal();
             });
 
-            // Nút Show Code cho Desktop
-            document.querySelectorAll('[data-offer-show]').forEach((btn) => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
+            // Desktop: Show Code <a> -- không preventDefault
+            document.querySelectorAll('[data-offer-show]').forEach((el) => {
+                el.addEventListener('click', function() {
                     const data = {
-                        logo: this.dataset.storeLogo,
+                        popupUrl: this.dataset.popupUrl,
                         store: this.dataset.storeName,
                         offerName: this.dataset.offerName,
                         code: this.dataset.offerCode,
                         url: this.dataset.offerUrl,
+                        logo: this.dataset.storeLogo,
+                        id: this.dataset.offerId,
                     };
-                    openModal(data);
+                    window.open(data.popupUrl, '_blank', 'noopener');
+                    // Không mở modal tại đây vì trang sẽ đi merchant
+                    // Nếu bạn muốn vẫn mở modal ngay (có thể chớp rồi out) thì thêm: openModal(data);
                 });
             });
 
-            // Click toàn bộ card cho Mobile (<768px)
+            // Mobile: click card -> mở popup tab + chuyển sang merchant
             document.querySelectorAll('[data-offer-card]').forEach((card) => {
                 card.addEventListener('click', function(e) {
-                    if (window.innerWidth < 768) { // mobile
+                    if (window.innerWidth < 768) {
+                        e.preventDefault();
                         const data = {
-                            logo: this.dataset.storeLogo,
                             store: this.dataset.storeName,
                             offerName: this.dataset.offerName,
                             code: this.dataset.offerCode,
                             url: this.dataset.offerUrl,
+                            logo: this.dataset.storeLogo,
+                            id: this.dataset.offerId,
+                            popupUrl: "{{ route('view.index', ['slug' => $deal->slug]) }}" +
+                                '?show=' + this.dataset.offerId,
                         };
-                        openModal(data);
+                        window.open(data.popupUrl, '_blank', 'noopener');
+                        window.location = data.url; // đi merchant trong tab hiện tại
                     }
                 });
             });
+
+            // Auto mở modal khi trang được mở với ?show=id
+            (function autoOpenFromQuery() {
+                const params = new URLSearchParams(window.location.search);
+                const id = params.get('show');
+                if (!id) return;
+                const trigger = document.querySelector('[data-offer-show][data-offer-id="' + id + '"]') ||
+                    document.querySelector('[data-offer-card][data-offer-id="' + id + '"]');
+                if (!trigger) return;
+                const data = {
+                    logo: trigger.dataset.storeLogo,
+                    store: trigger.dataset.storeName,
+                    offerName: trigger.dataset.offerName,
+                    code: trigger.dataset.offerCode,
+                    url: trigger.dataset.offerUrl,
+                };
+                setTimeout(() => openModal(data), 50);
+            })();
         });
     </script>
-
 @endsection

@@ -490,27 +490,26 @@
                         <a href="">Top Store new</a>
                     </h2>
                 </div>
-                <div class="grid grid-cols-3 place-items-center gap-x-6 gap-y-8 md:grid-cols-4 lg:grid-cols-8"
-                    data-component-name="cash-back">
-                    <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
-                        @foreach ($latestStores as $store)
-                            <a href="{{ route('view.index', ['slug' => $store->slug]) }}" class="group mb-auto block"
-                                aria-label="{{ $store->name }}">
-                                <div class="border-black mb-3 transition-shadow duration-300 ease-out group-hover:shadow-xl md:h-32 md:w-32 p-4 md:p-5 overflow-hidden rounded-full border bg-dynamic mx-auto"
-                                    style="--dynamic: {{ $store->brand_color ?? '#ffffff' }}">
-                                    <img src="{{ asset('storage/' . $store->image) }}" alt="{{ $store->name }}"
-                                        class="aspect-square h-auto w-full object-contain" width="86" height="86"
-                                        onerror="this.src='{{ asset('images/placeholder-store.png') }}';">
-                                </div>
-                                <div
-                                    class="mx-auto max-w-28 text-center text-xs leading-tight group-hover:underline group-hover:underline-offset-4 lg:text-sm">
-                                    <img class="-mr-1 mb-1 inline-block h-4 w-4 group-hover:animate-bounce"
-                                        src="/svg/images/cashback-bolt.svg" alt="" width="16" height="16">
-                                    <strong>{{ $store->name }}</strong>
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
+                <div class="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+                    @foreach ($latestStores as $store)
+                        <a href="{{ route('view.index', ['slug' => $store->slug]) }}"
+                            class="group flex flex-col items-center text-center" aria-label="{{ $store->name }}">
+                            <div class="mb-3 overflow-hidden rounded-full border transition-shadow duration-300 ease-out group-hover:shadow-xl
+                                       p-4 md:p-5 md:h-32 md:w-32
+                                       bg-dynamic"
+                                style="--dynamic: {{ $store->brand_color ?? '#ffffff' }};">
+                                <img src="{{ asset('storage/' . $store->image) }}" alt="{{ $store->name }}"
+                                    class="aspect-square h-auto w-full object-contain" width="86" height="86"
+                                    loading="lazy" onerror="this.src='{{ asset('images/placeholder-store.png') }}';">
+                            </div>
+                            <div
+                                class="max-w-28 text-xs leading-tight lg:text-sm group-hover:underline group-hover:underline-offset-4">
+                                <strong class="block truncate">{{ $store->name }}</strong>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+
             </section>
 
             <section class="mb-8 max-w-xl pt-4 md:mb-10" id="summer-checklist">
