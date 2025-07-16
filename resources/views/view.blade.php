@@ -54,8 +54,11 @@
                 <div class="mb-6 mt-2 min-w-0 [grid-area:offers]" bis_skin_checked="1">
                     <div data-component-name="top_offers" bis_skin_checked="1">
                         @forelse ($offers as $offer)
-                            <div class="border-gray-200 mb-2 min-h-[75px] rounded-lg border px-3 py-3 shadow-lg shadow-gray-200/50 md:px-6 md:shadow-none md:hover:shadow-lg md:hover:shadow-gray-200/50 lg:mb-4"
-                                bis_skin_checked="1">
+                            <div class="border-gray-200 mb-2 min-h-[75px] rounded-lg border px-3 py-3 shadow-lg shadow-gray-200/50 md:px-6 md:shadow-none md:hover:shadow-lg md:hover:shadow-gray-200/50 lg:mb-4 cursor-pointer"
+                                data-offer-card data-offer-id="{{ $offer->id }}" data-offer-code="{{ $offer->code }}"
+                                data-offer-name="{{ $offer->offer }}" data-offer-url="{{ $offer->url }}"
+                                data-store-name="{{ $deal->name }}"
+                                data-store-logo="{{ asset('storage/' . $deal->image) }}">
                                 <div
                                     class="group grid grid-cols-[theme(spacing.20)_auto] gap-x-2 sm:grid-cols-[theme(spacing.30)_auto] md:grid-cols-[theme(spacing.30)_auto_theme(spacing.48)] lg:gap-x-6">
 
@@ -200,6 +203,7 @@
                 if (e.target === modal) closeModal();
             });
 
+            // Nút Show Code cho Desktop
             document.querySelectorAll('[data-offer-show]').forEach((btn) => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -210,7 +214,23 @@
                         code: this.dataset.offerCode,
                         url: this.dataset.offerUrl,
                     };
-                    openModal(data); // mở modal ngay
+                    openModal(data);
+                });
+            });
+
+            // Click toàn bộ card cho Mobile (<768px)
+            document.querySelectorAll('[data-offer-card]').forEach((card) => {
+                card.addEventListener('click', function(e) {
+                    if (window.innerWidth < 768) { // mobile
+                        const data = {
+                            logo: this.dataset.storeLogo,
+                            store: this.dataset.storeName,
+                            offerName: this.dataset.offerName,
+                            code: this.dataset.offerCode,
+                            url: this.dataset.offerUrl,
+                        };
+                        openModal(data);
+                    }
                 });
             });
         });
