@@ -31,7 +31,7 @@
                                         bis_skin_checked="1">
                                         <span
                                             class="bg-gray-200 mr-1 rounded-[4px] px-1 text-center font-sans text-[12px] font-semibold capitalize text-black max-md:py-0.5 md:inline-block">
-                                            {{ $offer->offer }}
+                                            CODE
                                         </span>
                                     </div>
                                     <h3
