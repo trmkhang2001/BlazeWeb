@@ -172,7 +172,7 @@
                 titleEl.textContent = data.offerName;
                 codeEl.textContent = data.code;
                 shopLink.href = data.url;
-                shopLink.textContent = 'Shop Now';
+                shopLink.textContent = data.store;
                 currentCode = data.code;
 
                 codeWrap.style.display = currentCode ? '' : 'none';
