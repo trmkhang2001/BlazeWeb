@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\SupplierController;
 use App\Http\Controllers\Backend\TransactionsController;
 use App\Http\Controllers\Backend\UsersController;
 use App\Http\Controllers\Clients\ClientsController;
+use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,10 +49,8 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', function () {
     return view('home');
-});
-Route::get('/view', function () {
-    return view('view');
-});
+})->name('home');
+Route::get('/view/{slug?}', [ViewController::class, 'index'])->name('view.index');
 Route::controller(AuthController::class)->group(function () {
     Route::get('login', 'login')->name('login');
     Route::post('login', 'loginAction')->name('login.action');

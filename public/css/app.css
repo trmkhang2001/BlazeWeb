@@ -4687,13 +4687,13 @@ summary::-webkit-details-marker {
     outline: 2px solid #fff;
 }
 
-:focus,
+/* :focus,
 :is([class*="bg-gray"]) :focus,
 :is([class*="bg-teal"]) :focus,
 :is([class*="bg-white"]) :focus {
     outline: 2px solid #741fa2;
     outline-offset: 6px;
-}
+} */
 
 @media (min-width: 640px) {
     :is([class*="sm:bg-black"]) :focus,
