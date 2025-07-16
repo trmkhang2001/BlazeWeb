@@ -45,12 +45,20 @@
             <section
                 class="lg:gap-x-none container mx-auto grid max-w-screen-xl grid-cols-[theme(spacing.20)_auto] gap-x-3 [grid-template-areas:'disclaimer_disclaimer'_'logo_heading'_'subheading_subheading'_'offers_offers'_'table_table'_'leftrail_leftrail'_'content_content'] lg:mt-4 lg:auto-rows-[auto_auto_100px_auto_auto_1fr]     lg:[grid-template-areas:'logo_heading'_'logo_subheading'_'logo_offers'_'disclaimer_offers'_'leftrail_offers'_'leftrail_table'_'leftrail_content']">
 
-                <h1
+                {{-- <h1
                     class="mb-3 flex min-h-16 items-center self-center font-sans-bold text-xl font-extrabold leading-tight [grid-area:heading] lg:-mb-3 lg:mt-1 lg:items-center lg:self-start lg:pl-0 lg:text-4xl">
                     {{ strtoupper($deal->name) }} &amp; Promo Code &amp; Coupons {{ $deal->url }}
                 </h1>
                 <img src="{{ asset('storage/' . $deal->image) }}" alt="{{ $deal->name }}"
-                    class="h-24 w-24 rounded-full object-contain bg-white ring-1 ring-gray-200 p-1" />
+                    class="h-24 w-24 rounded-full object-contain bg-white ring-1 ring-gray-200 p-1" /> --}}
+                <div class="flex items-center gap-4 [grid-area:heading] lg:mt-1 lg:-mb-3 mb-4">
+                    <img src="{{ asset('storage/' . $deal->image) }}" alt="{{ $deal->name }}"
+                        class="h-16 w-16 rounded-full object-contain bg-white ring-1 ring-gray-200 p-1 lg:h-24 lg:w-24" />
+                    <h1 class="font-sans-bold text-xl font-extrabold leading-tight lg:text-4xl">
+                        {{ strtoupper($deal->name) }} &amp; Promo Code &amp; Coupons {{ $deal->url }}
+                    </h1>
+                </div>
+
                 <div class="mb-6 mt-2 min-w-0 [grid-area:offers]" bis_skin_checked="1">
                     <div data-component-name="top_offers" bis_skin_checked="1">
                         @forelse ($offers as $offer)
@@ -82,9 +90,13 @@
                                     </h3>
 
                                     {{-- CTA Show Code (click = mở tab + modal) --}}
-                                    <div class="col-start-3 row-span-3 row-start-1 my-auto hidden flex-col md:flex">
+                                    <div
+                                        class="col-span-2 mt-3 flex justify-end md:col-start-3 md:row-span-3 md:row-start-1 md:my-auto md:mt-0 md:justify-end">
                                         <button type="button"
-                                            class="relative mb-2 flex h-12 w-full items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-base font-bold leading-none tracking-wider text-white before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300 after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30"
+                                            class="relative mb-2 px-5 flex h-10 min-w-[120px] items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-sm font-bold leading-none tracking-wider text-white
+                                               md:h-12 md:text-base
+                                               before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300
+                                               after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30"
                                             data-offer-show data-offer-id="{{ $offer->id }}"
                                             data-offer-code="{{ $offer->code }}" data-offer-name="{{ $offer->offer }}"
                                             data-offer-url="{{ $offer->url }}" data-store-name="{{ $deal->name }}"
@@ -92,6 +104,7 @@
                                             Show Code
                                         </button>
                                     </div>
+
                                 </div>
 
                                 <details

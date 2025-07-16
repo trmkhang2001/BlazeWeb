@@ -30,4 +30,8 @@ class Category extends Model
     {
         return $this->hasMany(Category::class, 'parent_id');
     }
+    public function stores()
+    {
+        return $this->hasMany(DealStore::class, 'category_id');
+    }
 }

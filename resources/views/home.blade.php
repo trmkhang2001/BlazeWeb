@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Coupon On Top - The Best Coupons, Promo Codes & Cash Back Offers')
+@php
+    use Illuminate\Support\Str;
+@endphp
 @section('content')
     <main>
         {{-- <section class="w-full overflow-hidden">
@@ -484,132 +487,30 @@
             <section class="mb-16 md:mb-20">
                 <div class="mb-6 flex flex-wrap justify-between lg:mb-0">
                     <h2 class="mb-4 text-xl font-bold capitalize leading-tight md:leading-normal">
-                        <a href="">Top Offer , Deals , Store new</a>
+                        <a href="">Top Store new</a>
                     </h2>
                 </div>
                 <div class="grid grid-cols-3 place-items-center gap-x-6 gap-y-8 md:grid-cols-4 lg:grid-cols-8"
                     data-component-name="cash-back">
-                    <a href="" class="group mb-auto">
-                        <div class="border-black mb-3 transition-shadow duration-300 ease-out group-hover:shadow-xl md:h-32 md:w-32 p-4 md:p-5 overflow-hidden rounded-full border bg-dynamic"
-                            style="--dynamic: #ffffff">
-                            <img src="/images/banner/04dAc7n7dh6y2pzuUkF1aye-color.fit_limit.quality_80.size_86x86.v1749064663.png.webp"
-                                alt="CVS" class="aspect-square h-auto w-full object-contain" width="86"
-                                height="86">
-                        </div>
-                        <div
-                            class="mx-auto max-w-28 text-center text-xs leading-tight group-hover:underline group-hover:underline-offset-4 lg:text-sm">
-                            <img class="-mr-1 mb-1 inline-block h-4 w-4 group-hover:animate-bounce"
-                                src="/svg/images/cashback-bolt.svg" alt="" width="16" height="16">
-                            <strong class="lg:mr-2">25%</strong>
-                            Cash&nbsp;Back
-                        </div>
-                    </a>
-                    <a href="" class="group mb-auto">
-                        <div class="border-dynamic mb-3 transition-shadow duration-300 ease-out group-hover:shadow-xl md:h-32 md:w-32 p-4 md:p-5 overflow-hidden rounded-full border bg-dynamic"
-                            style="--dynamic: #000000">
-                            <img src="/images/banner/07n04aV91uxtKAbVE1y7GYL-color.fit_limit.quality_80.size_86x86.v1749055320.png.webp"
-                                alt="Net-A-Porter" class="aspect-square h-auto w-full object-contain" width="86"
-                                height="86">
-                        </div>
-                        <div
-                            class="mx-auto max-w-28 text-center text-xs leading-tight group-hover:underline group-hover:underline-offset-4 lg:text-sm">
-                            <img class="-mr-1 mb-1 inline-block h-4 w-4 group-hover:animate-bounce"
-                                src="/svg/images/cashback-bolt.svg" alt="" width="16" height="16">
-                            <strong class="lg:mr-2">5%</strong>
-                            Cash&nbsp;Back
-                        </div>
-                    </a>
-                    <a href="" class="group mb-auto">
-                        <div class="border-black mb-3 transition-shadow duration-300 ease-out group-hover:shadow-xl md:h-32 md:w-32 p-4 md:p-5 overflow-hidden rounded-full border bg-dynamic"
-                            style="--dynamic: #ffffff">
-                            <img src="/images/banner/04ZBKo5V9qhNJGgM4czj8dG-color.fit_limit.quality_80.size_86x86.v1749064238.jpg.webp"
-                                alt="PrettyLittleThing" class="aspect-square h-auto w-full object-contain" width="86"
-                                height="86">
-                        </div>
-                        <div
-                            class="mx-auto max-w-28 text-center text-xs leading-tight group-hover:underline group-hover:underline-offset-4 lg:text-sm">
-                            <img class="-mr-1 mb-1 inline-block h-4 w-4 group-hover:animate-bounce"
-                                src="/svg/images/cashback-bolt.svg" alt="" width="16" height="16">
-                            <strong class="lg:mr-2">16%</strong>
-                            Cash&nbsp;Back
-                        </div>
-                    </a>
-                    <a href="" class="group mb-auto">
-                        <div class="border-dynamic mb-3 transition-shadow duration-300 ease-out group-hover:shadow-xl md:h-32 md:w-32 p-4 md:p-5 overflow-hidden rounded-full border bg-dynamic"
-                            style="--dynamic: #003b95">
-                            <img src="/images/banner/01e7y9VXYRuSvUuOaPXUCOG.fit_limit.quality_80.size_86x86.v1749064243.png.webp"
-                                alt="Booking.com" class="aspect-square h-auto w-full object-contain" width="86"
-                                height="86">
-                        </div>
-                        <div
-                            class="mx-auto max-w-28 text-center text-xs leading-tight group-hover:underline group-hover:underline-offset-4 lg:text-sm">
-                            <img class="-mr-1 mb-1 inline-block h-4 w-4 group-hover:animate-bounce"
-                                src="/svg/images/cashback-bolt.svg" alt="" width="16" height="16">
-                            <strong class="lg:mr-2">16%</strong>
-                            Cash&nbsp;Back
-                        </div>
-                    </a>
-                    <a href="" class="group mb-auto">
-                        <div class="border-dynamic mb-3 transition-shadow duration-300 ease-out group-hover:shadow-xl md:h-32 md:w-32 p-4 md:p-5 overflow-hidden rounded-full border bg-dynamic"
-                            style="--dynamic: #cc0000">
-                            <img src="/images/banner/00ebVEnjbokXgtzpToBWfNz-color.fit_limit.quality_80.size_86x86.v1749062060.png.webp"
-                                alt="Target" class="aspect-square h-auto w-full object-contain" width="86"
-                                height="86">
-                        </div>
-                        <div
-                            class="mx-auto max-w-28 text-center text-xs leading-tight group-hover:underline group-hover:underline-offset-4 lg:text-sm">
-                            <img class="-mr-1 mb-1 inline-block h-4 w-4 group-hover:animate-bounce"
-                                src="/svg/images/cashback-bolt.svg" alt="" width="16" height="16">
-                            <strong class="lg:mr-2">2%</strong>
-                            Cash&nbsp;Back
-                        </div>
-                    </a>
-                    <a href="" class="group mb-auto">
-                        <div class="border-dynamic mb-3 transition-shadow duration-300 ease-out group-hover:shadow-xl md:h-32 md:w-32 p-4 md:p-5 overflow-hidden rounded-full border bg-dynamic"
-                            style="--dynamic: #121821">
-                            <img src="/images/banner/05kie42h3YvHwjr4G1w80Qq-color.fit_limit.quality_80.size_86x86.v1749054405.png.webp"
-                                alt="Amazon" class="aspect-square h-auto w-full object-contain" width="86"
-                                height="86">
-                        </div>
-                        <div
-                            class="mx-auto max-w-28 text-center text-xs leading-tight group-hover:underline group-hover:underline-offset-4 lg:text-sm">
-                            <img class="-mr-1 mb-1 inline-block h-4 w-4 group-hover:animate-bounce"
-                                src="/svg/images/cashback-bolt.svg" alt="" width="16" height="16">
-                            <strong class="lg:mr-2">15%</strong>
-                            Cash&nbsp;Back
-                        </div>
-                    </a>
-                    <a href="" class="group mb-auto">
-                        <div class="border-dynamic mb-3 transition-shadow duration-300 ease-out group-hover:shadow-xl md:h-32 md:w-32 p-4 md:p-5 overflow-hidden rounded-full border bg-dynamic"
-                            style="--dynamic: #e31837">
-                            <img src="/images/banner/06G4S7x8qfUqc6F8eChJj9b-color.fit_limit.quality_80.size_86x86.v1749061933.png.webp"
-                                alt="GNC" class="aspect-square h-auto w-full object-contain" width="86"
-                                height="86">
-                        </div>
-                        <div
-                            class="mx-auto max-w-28 text-center text-xs leading-tight group-hover:underline group-hover:underline-offset-4 lg:text-sm">
-                            <img class="-mr-1 mb-1 inline-block h-4 w-4 group-hover:animate-bounce"
-                                src="/svg/images/cashback-bolt.svg" alt="" width="16" height="16">
-                            <strong class="lg:mr-2">5%</strong>
-                            Cash&nbsp;Back
-                        </div>
-                    </a>
-                    <a href="" class="group mb-auto">
-                        <div class="border-black mb-3 transition-shadow duration-300 ease-out group-hover:shadow-xl md:h-32 md:w-32 p-4 md:p-5 overflow-hidden rounded-full border bg-dynamic"
-                            style="--dynamic: #ffffff">
-                            <img src="/images/banner/05exxGj3D7XT5VhRxpiPZJI.fit_limit.quality_80.size_86x86.v1749053908.png.webp"
-                                alt="VistaPrint" class="aspect-square h-auto w-full object-contain" width="86"
-                                height="86">
-                        </div>
-                        <div
-                            class="mx-auto max-w-28 text-center text-xs leading-tight group-hover:underline group-hover:underline-offset-4 lg:text-sm">
-                            <img class="-mr-1 mb-1 inline-block h-4 w-4 group-hover:animate-bounce"
-                                src="/svg/images/cashback-bolt.svg" alt="" width="16" height="16">
-                            <strong class="lg:mr-2">12%</strong>
-                            Cash&nbsp;Back
-                        </div>
-                    </a>
-                </div>
+                    <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
+                        @foreach ($latestStores as $store)
+                            <a href="{{ route('view.index', ['slug' => $store->slug]) }}" class="group mb-auto block"
+                                aria-label="{{ $store->name }}">
+                                <div class="border-black mb-3 transition-shadow duration-300 ease-out group-hover:shadow-xl md:h-32 md:w-32 p-4 md:p-5 overflow-hidden rounded-full border bg-dynamic mx-auto"
+                                    style="--dynamic: {{ $store->brand_color ?? '#ffffff' }}">
+                                    <img src="{{ asset('storage/' . $store->image) }}" alt="{{ $store->name }}"
+                                        class="aspect-square h-auto w-full object-contain" width="86" height="86"
+                                        onerror="this.src='{{ asset('images/placeholder-store.png') }}';">
+                                </div>
+                                <div
+                                    class="mx-auto max-w-28 text-center text-xs leading-tight group-hover:underline group-hover:underline-offset-4 lg:text-sm">
+                                    <img class="-mr-1 mb-1 inline-block h-4 w-4 group-hover:animate-bounce"
+                                        src="/svg/images/cashback-bolt.svg" alt="" width="16" height="16">
+                                    <strong>{{ $store->name }}</strong>
+                                </div>
+                            </a>
+                        @endforeach
+                    </div>
             </section>
 
             <section class="mb-8 max-w-xl pt-4 md:mb-10" id="summer-checklist">
@@ -619,293 +520,50 @@
                     </h2>
                 </div>
                 <ul class="grid grid-cols-1 gap-4 md:grid-cols-4 lg:grid-cols-5">
-                    <li class="relative flex h-32 flex-col md:h-auto">
-                        <a href=""
-                            class="relative mb-5 block flex h-full cursor-pointer overflow-hidden bg-white md:h-auto md:min-h-[278px] md:flex-col md:rounded-xl md:border lg:h-32 lg:flex-col">
-                            <img src="imagery/merchants/05kie42h3YvHwjr4G1w80Qq-color.fit_limit.quality_80.size_300x130.v1749054405.png.webp"
-                                alt="Amazon 15% Cash Back on Amazon Devices"
-                                class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
-                                style="--dynamic:#121821" width="300" height="130">
-                            <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">Amazon</h3>
+                    @foreach ($latestOffers as $offer)
+                        @php
+                            $store = $offer->store;
+                            $storeSlug = $store->slug ?? null;
+                            $storeName = $store->name ?? 'Store';
+                            $storeImg =
+                                $store && $store->image
+                                    ? asset('storage/' . $store->image)
+                                    : asset('images/placeholder-store.png');
+                            $offerText = $offer->offer ?: $offer->code ?: 'Offer';
+                            $offerDesc = $offer->description ?: $offerText;
+                        @endphp
+
+                        <li class="relative flex h-32 flex-col md:h-auto">
+                            <a href="{{ $storeSlug ? route('view.index', ['slug' => $storeSlug]) : '#' }}"
+                                class="relative mb-5 block flex h-full cursor-pointer overflow-hidden bg-white md:h-auto md:min-h-[278px] md:flex-col md:rounded-xl md:border lg:h-32 lg:flex-col"
+                                aria-label="{{ $storeName }} {{ $offerText }}">
+                                <img src="{{ $storeImg }}" alt="{{ $storeName }} {{ $offerText }}"
+                                    class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
+                                    style="--dynamic:#121821" width="300" height="130" loading="lazy"
+                                    onerror="this.src='{{ asset('images/placeholder-store.png') }}'">
+                                <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
+                                    <div>
+                                        <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">{{ $storeName }}
+                                        </h3>
+                                        <p
+                                            class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
+                                            {{ Str::limit($offerDesc, 80) }}
+                                        </p>
+                                    </div>
                                     <p
-                                        class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
-                                        15% Cash Back on Amazon Devices</p>
+                                        class="mt-2 self-start rounded-full bg-gray-100 px-4 py-1.5 text-xs font-bold lg:mb-1">
+                                        {{ Str::limit($offerText, 24) }}
+                                    </p>
                                 </div>
-                                <p class="mt-2 self-start rounded-full bg-gray-100 px-4 py-1.5 text-xs font-bold lg:mb-1">
-                                    Cash Back</p>
-                            </div>
-                            <p
-                                class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
-
-                                <img class="-mb-1 -ml-1 h-4 w-4" src="/svg/images/cashback-bolt.svg" alt=""
-                                    role="presentation" width="16" height="16">
-
-                                +15% Back
-                            </p>
-                        </a>
-                        <div
-                            class="hidden shrink-0 px-2 pt-1 text-[10px] font-medium uppercase tracking-widest text-gray-500 md:block">
-                            Sponsored
-                        </div>
-                    </li>
-                    <li class="relative flex h-32 flex-col md:h-auto">
-                        <a href=""
-                            class="relative mb-5 block flex h-full cursor-pointer overflow-hidden bg-white md:h-auto md:min-h-[278px] md:flex-col md:rounded-xl md:border lg:h-32 lg:flex-col">
-                            <img src="/imagery/merchants/07pdpFTo6O6qbTtqGNW07Rx-color.fit_limit.quality_80.size_300x130.v1749255537.png.webp"
-                                alt="Talbots 40% Off Sitewide + Free Shipping"
-                                class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
-                                style="--dynamic:#000000" width="300" height="130">
-                            <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">Talbots</h3>
-                                    <p
-                                        class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
-                                        Summer CYBER MONDAY! 40% off + FREE shipping!</p>
-                                </div>
-                            </div>
-                            <p
-                                class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
-
-                                <img class="-my-[7px] -ml-2.5 h-7 w-7" src="/svg/images/flame.svg" alt=""
-                                    role="presentation" width="28" height="28">
-
-                                40% Off
-                            </p>
-                        </a>
-                        <div
-                            class="hidden shrink-0 px-2 pt-1 text-[10px] font-medium uppercase tracking-widest text-gray-500 md:block">
-                            Sponsored
-                        </div>
-                    </li>
-                    <li class="relative flex h-32 flex-col md:h-auto">
-                        <a href="">
-                            <img src="/imagery/merchants/01XRnUl7OSueaApseZ3TYDs-color.fit_limit.quality_80.size_300x130.v1749162508.png.webp"
-                                type="image/webp" alt="SHEIN 30% Off Orders $29+ Sitewide for CouponOnTop Shoppers"
-                                class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
-                                style="--dynamic:#000000" width="300" height="130">
-                            <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">SHEIN</h3>
-                                    <p
-                                        class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
-                                        30% Off Orders $29+ Sitewide for CouponOnTop Shoppers</p>
-                                </div>
-                                <p class="mt-2 self-start rounded-full bg-gray-100 px-4 py-1.5 text-xs font-bold lg:mb-1">
-                                    Coupon code</p>
-                            </div>
-                            <p
-                                class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
-
-                                <img class="-my-[7px] -ml-2.5 h-7 w-7" src="/svg/images/flame.svg" alt=""
-                                    role="presentation" width="28" height="28">
-
-                                30% Off
-                            </p>
-                        </a>
-                        <div
-                            class="hidden shrink-0 px-2 pt-1 text-[10px] font-medium uppercase tracking-widest text-gray-500 md:block">
-                            Sponsored
-                        </div>
-                    </li>
-                    <li class="relative flex h-32 flex-col md:h-auto">
-                        <a href=""
-                            class="relative mb-5 block flex h-full cursor-pointer overflow-hidden bg-white md:h-auto md:min-h-[278px] md:flex-col md:rounded-xl md:border lg:h-32 lg:flex-col">
-                            <img src="/imagery/merchants/07BICzigEou6yFZs2obVYnd-color.fit_limit.quality_80.size_300x130.v1749055051.png.webp"
-                                alt="Vrbo 5% Cash Back for Purchases Sitewide"
-                                class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
-                                style="--dynamic:#245abc" width="300" height="130">
-                            <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">Vrbo</h3>
-                                    <p
-                                        class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
-                                        5% Cash Back for Purchases Sitewide</p>
-                                </div>
-                                <p class="mt-2 self-start rounded-full bg-gray-100 px-4 py-1.5 text-xs font-bold lg:mb-1">
-                                    Cash Back</p>
-                            </div>
-                            <p
-                                class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
-
-                                <img class="-mb-1 -ml-1 h-4 w-4" src="/svg/images/cashback-bolt.svg" alt=""
-                                    role="presentation" width="16" height="16">
-
-                                +5% Back
-                            </p>
-                        </a>
-                        <div
-                            class="hidden shrink-0 px-2 pt-1 text-[10px] font-medium uppercase tracking-widest text-gray-500 md:block">
-                            Sponsored
-                        </div>
-                    </li>
-                    <li class="relative flex h-32 flex-col md:h-auto">
-                        <a href=""
-                            class="relative mb-5 block flex h-full cursor-pointer overflow-hidden bg-white md:h-auto md:min-h-[278px] md:flex-col md:rounded-xl md:border lg:h-32 lg:flex-col">
-                            <img src="/imagery/merchants/05d8BQK2kXXFeZMEsCYyBRK.fit_limit.quality_80.size_300x130.v1749126741.png.webp"
-                                alt="Chewy.com $20 Off $49+ orders"
-                                class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
-                                style="--dynamic:#ffffff" width="300" height="130">
-                            <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
-                                <div
-                                    class="absolute top-0 mx-auto hidden w-3/4 self-center border-b border-gray-200 md:block">
-                                </div>
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">Chewy.com</h3>
-                                    <p
-                                        class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
-                                        $20 Off $49+ orders</p>
-                                </div>
-                                <p class="mt-2 self-start rounded-full bg-gray-100 px-4 py-1.5 text-xs font-bold lg:mb-1">
-                                    Coupon code</p>
-                            </div>
-                            <p
-                                class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
-
-                                <img class="-my-[7px] -ml-2.5 h-7 w-7" src="/svg/images/flame.svg" alt=""
-                                    role="presentation" width="28" height="28">
-
-                                $20 Off
-                            </p>
-                        </a>
-                    </li>
-                    <li class="relative flex h-32 flex-col md:h-auto">
-                        <a href=""
-                            class="relative mb-5 block flex h-full cursor-pointer overflow-hidden bg-white md:h-auto md:min-h-[278px] md:flex-col md:rounded-xl md:border lg:h-32 lg:flex-col">
-                            <img src="/imagery/merchants/02iAE2HnrEV7uKUT6fWrKXq-color.fit_limit.quality_80.size_300x130.v1749062367.png.webp"
-                                alt="Papa John's Up to 30% Off Sitewide"
-                                class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
-                                style="--dynamic:#ffffff" width="300" height="130">
-                            <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
-                                <div
-                                    class="absolute top-0 mx-auto hidden w-3/4 self-center border-b border-gray-200 md:block">
-                                </div>
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">Papa John's</h3>
-                                    <p
-                                        class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
-                                        Up to 30% Off Sitewide</p>
-                                </div>
-                                <p class="mt-2 self-start rounded-full bg-gray-100 px-4 py-1.5 text-xs font-bold lg:mb-1">
-                                    Coupon code</p>
-                            </div>
-                            <p
-                                class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
-
-                                <img class="-my-[7px] -ml-2.5 h-7 w-7" src="/svg/images/flame.svg" alt=""
-                                    role="presentation" width="28" height="28">
-
-                                30% Off
-                            </p>
-                        </a>
-                    </li>
-                    <li class="relative flex h-32 flex-col md:h-auto">
-                        <a href=""
-                            class="relative mb-5 block flex h-full cursor-pointer overflow-hidden bg-white md:h-auto md:min-h-[278px] md:flex-col md:rounded-xl md:border lg:h-32 lg:flex-col">
-                            <img src="/imagery/merchants/00ebVEnjbokXgtzpToBWfNz-color.fit_limit.quality_80.size_300x130.v1749062060.png.webp"
-                                alt="Target June Target Top Deals! Up to 60% Off"
-                                class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
-                                style="--dynamic:#cc0000" width="300" height="130">
-                            <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">Target</h3>
-                                    <p
-                                        class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
-                                        June Target Top Deals! Up to 60% Off</p>
-                                </div>
-                            </div>
-                            <p
-                                class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
-
-                                <img class="-my-[7px] -ml-2.5 h-7 w-7" src="/svg/images/flame.svg" alt=""
-                                    role="presentation" width="28" height="28">
-
-                                60% Off
-                            </p>
-                        </a>
-                    </li>
-                    <li class="relative flex h-32 flex-col md:h-auto">
-                        <a href=""
-                            class="relative mb-5 block flex h-full cursor-pointer overflow-hidden bg-white md:h-auto md:min-h-[278px] md:flex-col md:rounded-xl md:border lg:h-32 lg:flex-col">
-                            <img src="/imagery/merchants/02IBCOV7nxvxAlFU4oGi3LQ-color.fit_limit.quality_80.size_300x130.v1749061641.png.webp"
-                                alt="Walgreens Photo 50% Off Prints, Posters &amp; Enlargements"
-                                class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
-                                style="--dynamic:#00a397" width="300" height="130">
-                            <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">Walgreens Photo</h3>
-                                    <p
-                                        class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
-                                        50% Off Prints, Posters &amp; Enlargements</p>
-                                </div>
-                                <p class="mt-2 self-start rounded-full bg-gray-100 px-4 py-1.5 text-xs font-bold lg:mb-1">
-                                    Coupon code</p>
-                            </div>
-                            <p
-                                class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
-
-                                <img class="-my-[7px] -ml-2.5 h-7 w-7" src="/svg/images/flame.svg" alt=""
-                                    role="presentation" width="28" height="28">
-
-                                50% Off
-                            </p>
-                        </a>
-                    </li>
-                    <li class="relative flex h-32 flex-col md:h-auto">
-                        <a href=""
-                            class="relative mb-5 block flex h-full cursor-pointer overflow-hidden bg-white md:h-auto md:min-h-[278px] md:flex-col md:rounded-xl md:border lg:h-32 lg:flex-col">
-                            <img src="/imagery/merchants/02goalC5qwNuNuTLheya0KS-color.fit_limit.quality_80.size_300x130.v1749066133.png.webp"
-                                alt="Nike Extra 20% Off Select Styles"
-                                class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
-                                style="--dynamic:#000000" width="300" height="130">
-                            <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">Nike</h3>
-                                    <p
-                                        class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
-                                        Extra 20% Off Select Styles</p>
-                                </div>
-                                <p class="mt-2 self-start rounded-full bg-gray-100 px-4 py-1.5 text-xs font-bold lg:mb-1">
-                                    Coupon code</p>
-                            </div>
-                            <p
-                                class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
-
-                                <img class="-my-[7px] -ml-2.5 h-7 w-7" src="/svg/images/flame.svg" alt=""
-                                    role="presentation" width="28" height="28">
-
-                                20% Off
-                            </p>
-                        </a>
-                    </li>
-                    <li class="relative flex h-32 flex-col md:h-auto">
-                        <a href=""
-                            class="relative mb-5 block flex h-full cursor-pointer overflow-hidden bg-white md:h-auto md:min-h-[278px] md:flex-col md:rounded-xl md:border lg:h-32 lg:flex-col">
-                            <img src="/imagery/merchants/02RGwAdnXnoxI2rPZTySLqq-color.fit_limit.quality_80.size_300x130.v1749066124.png.webp"
-                                alt="Macy's Friends &amp; Family Sale! Extra 30% Off + 15% Off Beauty"
-                                class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
-                                style="--dynamic:#e11a2a" width="300" height="130">
-                            <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">Macy's</h3>
-                                    <p
-                                        class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
-                                        Friends &amp; Family Sale! Extra 30% Off + 15% Off Beauty</p>
-                                </div>
-                                <p class="mt-2 self-start rounded-full bg-gray-100 px-4 py-1.5 text-xs font-bold lg:mb-1">
-                                    Coupon code</p>
-                            </div>
-                            <p
-                                class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
-
-                                <img class="-my-[7px] -ml-2.5 h-7 w-7" src="/svg/images/flame.svg" alt=""
-                                    role="presentation" width="28" height="28">
-
-                                15% Off
-                            </p>
-                        </a>
-                    </li>
+                                <p
+                                    class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
+                                    <img class="-mb-1 -ml-1 h-4 w-4" src="/svg/images/cashback-bolt.svg" alt=""
+                                        role="presentation" width="16" height="16">
+                                    {{ Str::limit($offerText, 20) }}
+                                </p>
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </section>
 

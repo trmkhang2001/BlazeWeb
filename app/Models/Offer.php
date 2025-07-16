@@ -23,4 +23,8 @@ class Offer extends Model
     {
         return $this->belongsTo(DealStore::class, 'store_id');
     }
+    public function scopeApproved($q)
+    {
+        return $q->where('is_approved', 1);
+    }
 }
