@@ -75,7 +75,7 @@
 
                                     <div class="sm:col-span-1 sm:row-span-3 w-full">
                                         <div class="flex gap-2 w-full">
-                                            <div class="shrink-0 text-purple-700 text-xl font-extrabold uppercase tracking-tight md:text-3xl lg:tracking-wide"
+                                            <div class="flex shrink-0 items-center text-purple-700 text-xl font-extrabold uppercase tracking-tight md:text-3xl lg:tracking-wide"
                                                 style="flex-basis: 20%;">
                                                 {{ $offer->offer }}
                                             </div>
@@ -99,10 +99,10 @@
                                     <!-- Bên phải (Nút Show Code) -->
                                     <div class="flex items-center justify-end sm:col-start-2 md:col-start-3">
                                         <a href="https://trip.tp.st/Qpmdvh4X"
-                                            class="relative px-5 flex h-10 min-w-[120px] items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-sm font-bold leading-none tracking-wider text-white
+                                            class="relative px-5 flex h-10 min-w-[140px] items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-sm font-bold leading-none tracking-wider text-white
                                       md:h-12 md:text-base
                                       before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300
-                                      after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30"
+                                      after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30 btn-code"
                                             rel="nofollow sponsored noopener">
                                             Show Code
                                         </a>
