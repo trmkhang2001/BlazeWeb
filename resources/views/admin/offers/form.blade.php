@@ -56,6 +56,13 @@
                     <textarea name="description" class="form-control" rows="4">{{ old('description', $offer->description ?? '') }}</textarea>
                 </div>
 
+                {{-- Thêm Mô tả ngắn --}}
+                <div class="mb-4">
+                    <label class="form-label">Mô tả ngắn</label>
+                    <input type="text" name="short_description" class="form-control" maxlength="255"
+                        value="{{ old('short_description', $offer->short_description ?? '') }}">
+                </div>
+
                 <div class="form-check form-switch mb-4">
                     <input class="form-check-input" type="checkbox" name="is_verified" value="1"
                         {{ old('is_verified', $offer->is_verified ?? false) ? 'checked' : '' }}>

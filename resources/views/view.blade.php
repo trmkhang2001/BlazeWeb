@@ -9,8 +9,8 @@
                 aria-label="Đóng">✕</button>
 
             <!-- Logo -->
-            <div class="mx-auto mb-4 h-16 w-16 overflow-hidden rounded-full border p-1">
-                <img id="offerModalLogo" src="" alt="" class="aspect-square h-auto w-full object-contain">
+            <div class="mx-auto mb-4 h-16 w-16 overflow-hidden rounded-full border">
+                <img id="offerModalLogo" src="" alt="" class="h-full w-full object-cover">
             </div>
 
             <!-- Tên store -->
@@ -41,7 +41,14 @@
     </div>
 
     <main>
-        <div class="overflow-clip" bis_skin_checked="1">
+        <div class="overflow-clip container mx-auto max-w-screen-xl" bis_skin_checked="1">
+            <div class="flex items-center gap-4 [grid-area:heading] lg:mt-1 lg:-mb-3 mb-4">
+                <img src="{{ asset('storage/' . $deal->image) }}" alt="{{ $deal->name }}"
+                    class="h-16 w-16 rounded-full object-contain bg-white ring-1 ring-gray-200 p-1 lg:h-24 lg:w-24" />
+                <h1 class="font-sans-bold text-xl font-extrabold leading-tight lg:text-4xl">
+                    {{ strtoupper($deal->name) }} &amp; Promo Code &amp; Coupons {{ $deal->url }}
+                </h1>
+            </div>
             <section
                 class="lg:gap-x-none container mx-auto grid max-w-screen-xl grid-cols-[theme(spacing.20)_auto] gap-x-3 [grid-template-areas:'disclaimer_disclaimer'_'logo_heading'_'subheading_subheading'_'offers_offers'_'table_table'_'leftrail_leftrail'_'content_content'] lg:mt-4 lg:auto-rows-[auto_auto_100px_auto_auto_1fr]     lg:[grid-template-areas:'logo_heading'_'logo_subheading'_'logo_offers'_'disclaimer_offers'_'leftrail_offers'_'leftrail_table'_'leftrail_content']">
 
@@ -51,13 +58,6 @@
                 </h1>
                 <img src="{{ asset('storage/' . $deal->image) }}" alt="{{ $deal->name }}"
                     class="h-24 w-24 rounded-full object-contain bg-white ring-1 ring-gray-200 p-1" /> --}}
-                <div class="flex items-center gap-4 [grid-area:heading] lg:mt-1 lg:-mb-3 mb-4">
-                    <img src="{{ asset('storage/' . $deal->image) }}" alt="{{ $deal->name }}"
-                        class="h-16 w-16 rounded-full object-contain bg-white ring-1 ring-gray-200 p-1 lg:h-24 lg:w-24" />
-                    <h1 class="font-sans-bold text-xl font-extrabold leading-tight lg:text-4xl">
-                        {{ strtoupper($deal->name) }} &amp; Promo Code &amp; Coupons {{ $deal->url }}
-                    </h1>
-                </div>
 
                 <div class="mb-6 mt-2 min-w-0 [grid-area:offers]" bis_skin_checked="1">
                     <div data-component-name="top_offers" bis_skin_checked="1">
@@ -68,51 +68,49 @@
                                 data-store-name="{{ $deal->name }}"
                                 data-store-logo="{{ asset('storage/' . $deal->image) }}">
                                 <div
-                                    class="group grid grid-cols-[theme(spacing.20)_auto] gap-x-2 sm:grid-cols-[theme(spacing.30)_auto] md:grid-cols-[theme(spacing.30)_auto_theme(spacing.48)] lg:gap-x-6">
+                                    class="group flex items-center justify-between gap-3
+                                sm:grid sm:items-start sm:grid-cols-[theme(spacing.30)_auto]
+                                md:grid-cols-[theme(spacing.30)_auto_theme(spacing.48)]
+                                lg:gap-x-6">
 
-                                    <div
-                                        class="text-purple-700 col-start-1 row-span-3 row-start-1 mx-0 flex w-fit flex-col self-center text-center text-xl font-extrabold uppercase tracking-tight sm:row-span-3 sm:row-start-1 sm:mx-auto sm:pb-2 sm:pt-1 md:mx-0 md:text-3xl lg:tracking-wide">
-                                        <p class="leading-none">
-                                            {{ $offer->offer }}
-                                        </p>
+                                    <div class="sm:col-span-1 sm:row-span-3 w-full">
+                                        <div class="flex gap-2 w-full">
+                                            <div class="shrink-0 text-purple-700 text-xl font-extrabold uppercase tracking-tight md:text-3xl lg:tracking-wide"
+                                                style="flex-basis: 20%;">
+                                                {{ $offer->offer }}
+                                            </div>
+                                            <div class="flex flex-col items-start" style="flex-basis: 80%;">
+                                                <span
+                                                    class="bg-gray-200 rounded-[4px] px-1 text-center font-sans text-[12px] font-semibold capitalize text-black md:inline-block">
+                                                    CODE
+                                                </span>
+                                                <h3
+                                                    class="font-sans text-base font-medium capitalize tracking-tight sm:text-[22px] lg:font-semibold lg:leading-normal">
+                                                    {{ $offer->short_description }}
+                                                </h3>
+                                            </div>
+                                        </div>
+
                                     </div>
 
-                                    <div class="col-start-2 row-start-1 mt-auto [&>*:after]:text-gray-500">
-                                        <span
-                                            class="bg-gray-200 mr-1 rounded-[4px] px-1 text-center font-sans text-[12px] font-semibold capitalize text-black max-md:py-0.5 md:inline-block">
-                                            CODE
-                                        </span>
-                                    </div>
 
-                                    <h3
-                                        class="col-start-2 row-start-2 mt-1 self-center justify-self-start pr-3 font-sans text-base font-medium capitalize tracking-tight sm:text-[22px] lg:col-span-1 lg:font-semibold lg:leading-normal">
-                                        {{ $offer->offer }}
-                                    </h3>
 
-                                    {{-- CTA Show Code (click = mở tab + modal) --}}
-                                    <div
-                                        class="col-span-2 mt-3 flex justify-end md:col-start-3 md:row-span-3 md:row-start-1 md:my-auto md:mt-0 md:justify-end">
-                                        @php
-                                            $popupUrl = route('view.index', [
-                                                'slug' => $deal->slug,
-                                                'show' => $offer->id,
-                                            ]);
-                                        @endphp
-                                        <a href="{{ $offer->url }}"
-                                            class="relative mb-2 px-5 flex h-10 min-w-[120px] items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-sm font-bold leading-none tracking-wider text-white
-                                                   md:h-12 md:text-base
-                                                   before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300
-                                                   after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30"
-                                            rel="nofollow sponsored noopener" data-offer-show
-                                            data-offer-id="{{ $offer->id }}" data-offer-code="{{ $offer->code }}"
-                                            data-offer-name="{{ $offer->offer }}" data-offer-url="{{ $offer->url }}"
-                                            data-popup-url="{{ $popupUrl }}" data-store-name="{{ $deal->name }}"
-                                            data-store-logo="{{ asset('storage/' . $deal->image) }}">
+
+                                    <!-- Bên phải (Nút Show Code) -->
+                                    <div class="flex items-center justify-end sm:col-start-2 md:col-start-3">
+                                        <a href="https://trip.tp.st/Qpmdvh4X"
+                                            class="relative px-5 flex h-10 min-w-[120px] items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-sm font-bold leading-none tracking-wider text-white
+                                      md:h-12 md:text-base
+                                      before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300
+                                      after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30"
+                                            rel="nofollow sponsored noopener">
                                             Show Code
                                         </a>
                                     </div>
 
                                 </div>
+
+
 
                                 <details
                                     class="group mt-3 flex list-none flex-col border-t pt-2 max-md:hidden max-md:border-gray-200"

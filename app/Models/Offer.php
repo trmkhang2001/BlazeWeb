@@ -15,6 +15,7 @@ class Offer extends Model
         'url',
         'store_id',
         'description',
+        'short_description',
         'is_verified',
         'is_approved',
     ];
