@@ -97,16 +97,16 @@
 
 
                                     <!-- Bên phải (Nút Show Code) -->
-                                    <div class="flex items-center justify-end sm:col-start-2 md:col-start-3">
-                                        <a href="{{ $offer->url }}"
-                                            class="relative px-5 flex h-10 min-w-[140px] items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-sm font-bold leading-none tracking-wider text-white
-                                      md:h-12 md:text-base
-                                      before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300
-                                      after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30 btn-code"
-                                            rel="nofollow sponsored noopener">
-                                            Show Code
-                                        </a>
+                                    <div class="relative px-5 flex h-10 min-w-[140px] items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-sm font-bold leading-none tracking-wider text-white md:h-12 md:text-base before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300 after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30 btn-code"
+                                        data-offer-show data-offer-id="{{ $offer->id }}"
+                                        data-offer-code="{{ $offer->code }}" data-offer-name="{{ $offer->offer }}"
+                                        data-offer-url="{{ $offer->url }}" data-store-name="{{ $deal->name }}"
+                                        data-store-logo="{{ asset('storage/' . $deal->image) }}"
+                                        data-popup-url="{{ route('view.index', ['slug' => $deal->slug]) }}?show={{ $offer->id }}"
+                                        rel="nofollow sponsored noopener">
+                                        Show Code
                                     </div>
+
 
                                 </div>
 
@@ -234,6 +234,7 @@
                         id: this.dataset.offerId,
                     };
                     window.open(data.popupUrl, '_blank', 'noopener');
+                    window.location = data.url;
                     // Không mở modal tại đây vì trang sẽ đi merchant
                     // Nếu bạn muốn vẫn mở modal ngay (có thể chớp rồi out) thì thêm: openModal(data);
                 });
