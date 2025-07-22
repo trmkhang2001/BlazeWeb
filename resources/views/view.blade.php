@@ -98,7 +98,7 @@
 
                                     <!-- Bên phải (Nút Show Code) -->
                                     <div class="flex items-center justify-end sm:col-start-2 md:col-start-3">
-                                        <a href="https://trip.tp.st/Qpmdvh4X"
+                                        <a href="{{ $offer->url }}"
                                             class="relative px-5 flex h-10 min-w-[140px] items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-sm font-bold leading-none tracking-wider text-white
                                       md:h-12 md:text-base
                                       before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300
