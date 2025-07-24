@@ -39,6 +39,18 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="mb-4">
+                    <label class="form-label">Store</label>
+                    <select name="store_id" class="form-select">
+                        <option value="">-- Chọn store --</option>
+                        @foreach ($stores as $store)
+                            <option value="{{ $store->id }}"
+                                {{ old('store_id', $deal->store_id ?? '') == $store->id ? 'selected' : '' }}>
+                                {{ $store->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
 
                 <div class="row mb-4">
                     <div class="col-md-6">
@@ -67,15 +79,26 @@
                         </div>
                     @endif
                 </div>
+                <div class="mb-4">
+                    <label class="form-label">Mã màu (Color)</label>
+                    <div class="d-flex align-items-center gap-2">
+                        {{-- Nhập mã màu --}}
+                        <input type="text" name="color" id="colorText" class="form-control"
+                            placeholder="#FF0000 hoặc red" value="{{ old('color', $offer->color ?? '#000000') }}">
+                    </div>
+                </div>
 
                 <div class="form-check form-switch mb-4">
                     <input class="form-check-input" type="checkbox" name="is_approved" value="1"
                         {{ old('is_approved', $deal->is_approved ?? false) ? 'checked' : '' }}>
                     <label class="form-check-label">Hiển thị</label>
                 </div>
-
+                <div class="form-group">
+                    <label for="description">Mô tả ngắn</label>
+                    <textarea name="description" id="description" class="form-control" rows="5">{{ old('description', $deal->description ?? '') }}</textarea>
+                </div>
                 <div class="mb-4">
-                    <label class="form-label">Mô tả ngắn</label>
+                    <label class="form-label">Mô tả chi tiết</label>
                     <textarea name="short_description" id="short_description" class="form-control" rows="4">
                         {{ old('short_description', $deal->short_description ?? '') }}
                     </textarea>

@@ -23,6 +23,10 @@ class ViewController extends Controller
             'offers' => function ($q) {
                 $q->where('is_approved', 1);
                 $q->orderByDesc('id');
+            },
+            'deals' => function ($q) {
+                $q->where('is_approved', 1);
+                $q->orderByDesc('id');
             }
         ])
             ->where('slug', $slug)
@@ -40,7 +44,8 @@ class ViewController extends Controller
         // Bạn có thể lấy $deal->offers trong Blade, nên không bắt buộc truyền riêng
         return view('view', [
             'deal'   => $deal,
-            'offers' => $deal->offers, // tiện dùng trong Blade
+            'offers' => $deal->offers,
+            'deals'  => $deal->deals,
         ]);
     }
 

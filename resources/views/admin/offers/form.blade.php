@@ -62,6 +62,15 @@
                     <input type="text" name="short_description" class="form-control" maxlength="255"
                         value="{{ old('short_description', $offer->short_description ?? '') }}">
                 </div>
+                <div class="mb-4">
+                    <label class="form-label">Mã màu (Color)</label>
+                    <div class="d-flex align-items-center gap-2">
+                        {{-- Nhập mã màu --}}
+                        <input type="text" name="color" id="colorText" class="form-control"
+                            placeholder="#FF0000 hoặc red" value="{{ old('color', $offer->color ?? '#000000') }}">
+                    </div>
+                </div>
+
 
                 <div class="form-check form-switch mb-4">
                     <input class="form-check-input" type="checkbox" name="is_verified" value="1"

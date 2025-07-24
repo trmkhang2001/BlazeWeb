@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Deal;
 use App\Models\DealStore;
 use App\Models\Offer;
 use Illuminate\Http\Request;
@@ -28,7 +29,15 @@ class HomeController extends Controller
             ])
             ->take(10)
             ->get();
+        $latestDeals = Deal::query()
+            ->where('is_approved', 1)
+            ->latest('created_at')
+            ->with([
+                'store:id,name,slug,image',
+            ])
+            ->take(10)
+            ->get();
 
-        return view('home', compact('latestStores', 'latestOffers'));
+        return view('home', compact('latestStores', 'latestOffers', 'latestDeals'));
     }
 }

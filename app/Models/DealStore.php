@@ -33,6 +33,10 @@ class DealStore extends Model
     {
         return $this->hasMany(Offer::class, 'store_id');
     }
+    public function deals()
+    {
+        return $this->hasMany(Deal::class, 'store_id');
+    }
     public function scopeApproved($q)
     {
         return $q->where('is_approved', 1);

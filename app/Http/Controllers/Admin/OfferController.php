@@ -46,6 +46,7 @@ class OfferController extends Controller
             'store_id'          => 'required|exists:deal_stores,id',
             'description'       => 'nullable|string',
             'short_description' => 'nullable|string|max:255',
+            'color' => 'nullable|string|max:255',
             'is_verified'       => 'nullable|boolean',
             'is_approved'       => 'nullable|boolean',
         ]);
@@ -75,6 +76,7 @@ class OfferController extends Controller
             'store_id'          => 'required|exists:deal_stores,id',
             'description'       => 'nullable|string',
             'short_description' => 'nullable|string|max:255',
+            'color' => 'nullable|string|max:255',
             'is_verified'       => 'nullable|boolean',
             'is_approved'       => 'nullable|boolean',
         ]);

@@ -59,6 +59,7 @@
                             <th>Tên Deal</th>
                             <th>Slug</th>
                             <th>Danh mục</th>
+                            <th>Store</th>
                             <th>Ảnh</th>
                             <th>Giá gốc</th>
                             <th>Giá khuyến mãi</th>
@@ -73,6 +74,7 @@
                                 <td class="text-dark fw-bold">{{ $deal->name }}</td>
                                 <td>{{ $deal->slug }}</td>
                                 <td>{{ $deal->category->name ?? '—' }}</td>
+                                <td>{{ $deal->store->name ?? '—' }}</td>
                                 <td>
                                     @if ($deal->image)
                                         <img src="{{ asset('storage/' . $deal->image) }}" width="60" alt="Ảnh deal">

@@ -12,12 +12,15 @@ class Deal extends Model
         'name',
         'slug',
         'category_id',
+        'store_id',
         'original_price',
         'price',
         'url',
+        'color',
         'image',
         'is_approved',
         'short_description',
+        'description',
         'meta_title',
         'meta_keywords',
         'meta_description'
@@ -26,5 +29,9 @@ class Deal extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+    public function store()
+    {
+        return $this->belongsTo(DealStore::class, 'store_id');
     }
 }

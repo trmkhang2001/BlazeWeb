@@ -39,7 +39,44 @@
             </p>
         </div>
     </div>
+    <!-- Global Deal Modal -->
+    <div id="dealModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50" data-deal-modal>
+        <div class="relative w-full max-w-sm rounded-lg bg-white p-5 text-center shadow-lg">
+            <!-- Nút đóng -->
+            <button type="button" class="absolute right-3 top-3 text-gray-400 hover:text-gray-700" data-deal-close
+                aria-label="Đóng">✕</button>
 
+            <!-- Logo -->
+            <div class="mx-auto mb-4 h-16 w-16 overflow-hidden rounded-full border">
+                <img id="dealModalLogo" src="" alt="" class="h-full w-full object-cover">
+            </div>
+
+            <!-- Tên store -->
+            <h3 id="dealModalStore" class="mb-2 text-base font-semibold uppercase"></h3>
+
+            <!-- Tên offer -->
+            <h2 id="dealModalTitle" class="mb-3 text-lg font-bold"></h2>
+
+            <!-- Code -->
+            <div class="flex items-center justify-center gap-3">
+                <div id="dealModalCodeWrap"
+                    class="flex-1 rounded-full border border-black px-4 py-3 text-xl font-bold text-center">
+                    <span id="dealModalCode"></span>
+                </div>
+                <a type="button" id="dealModalShopLink" href="#" target="_blank" rel="nofollow sponsored"
+                    class="flex items-center justify-center h-12 w-28 rounded-full bg-purple-700 text-xl font-bold uppercase text-white">
+                    Shop
+                </a>
+            </div>
+
+            <!-- Link -->
+            <p class="mt-2 text-sm font-medium">
+                No code needed. Start shopping at
+                {{-- <a id="dealModalShopLink" href="#" target="_blank" rel="nofollow sponsored"
+                    class="text-purple-700 underline">Shop Now</a> --}}
+            </p>
+        </div>
+    </div>
     <main>
         <div class="overflow-clip container mx-auto max-w-screen-xl" bis_skin_checked="1">
             <div class="flex items-center gap-4 [grid-area:heading] lg:mt-1 lg:-mb-3 mb-4">
@@ -148,6 +185,75 @@
                         @empty
                             <p>No offers available at the moment.</p>
                         @endforelse
+                        @forelse ($deals as $deal)
+                            <div class="mt-20 border-gray-200 mb-2 min-h-[75px] rounded-lg border px-3 py-3 shadow-lg shadow-gray-200/50 md:px-6 md:shadow-none md:hover:shadow-lg md:hover:shadow-gray-200/50 lg:mb-4 cursor-pointer"
+                                data-deal-id="{{ $deal->id }}" data-deal-name="{{ $deal->name }}"
+                                data-deal-url="{{ $deal->url }}" data-deal-store="{{ $deal->store->name }}"
+                                data-deal-logo="{{ asset('storage/' . $deal->store->image) }}"
+                                data-popup-url="{{ route('view.index', ['slug' => $deal->store->slug]) }}?type=deal&show={{ $deal->id }}">
+
+                                <div
+                                    class="group flex items-center justify-between gap-3 sm:grid sm:items-start sm:grid-cols-[theme(spacing.30)_auto] md:grid-cols-[theme(spacing.30)_auto_theme(spacing.48)] lg:gap-x-6">
+                                    <div class="sm:col-span-1 sm:row-span-3 w-full">
+                                        <div class="flex gap-2 w-full">
+                                            <div class="flex shrink-0 items-center text-purple-700 text-xl font-extrabold uppercase tracking-tight md:text-3xl lg:tracking-wide"
+                                                style="flex-basis: 20%;">
+                                                {{ $deal->name }}
+                                            </div>
+                                            <div class="flex flex-col items-start" style="flex-basis: 80%;">
+                                                <span
+                                                    class="bg-gray-200 rounded-[4px] px-1 text-center font-sans text-[12px] font-semibold capitalize text-black md:inline-block">
+                                                    DEAL
+                                                </span>
+                                                <h3
+                                                    class="font-sans text-base font-medium capitalize tracking-tight sm:text-[22px] lg:font-semibold lg:leading-normal">
+                                                    {{ $deal->description }}
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Bên phải (Nút Show Code) -->
+                                    <div class="btn-deal relative px-5 flex h-10 min-w-[140px] items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-sm font-bold leading-none tracking-wider text-white md:h-12 md:text-base before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300 after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30 btn-code"
+                                        data-deal-show data-deal-id="{{ $deal->id }}"
+                                        data-deal-name="{{ $deal->name }}" data-deal-url="{{ $deal->url }}"
+                                        data-deal-store="{{ $deal->store->name }}"
+                                        data-deal-logo="{{ asset('storage/' . $deal->image) }}"
+                                        data-popup-url="{{ route('view.index', ['slug' => $deal->store->slug]) }}?type=deal&show={{ $deal->id }}">
+                                        Get Deal
+                                    </div>
+                                </div>
+
+                                <details
+                                    class="group mt-3 flex list-none flex-col border-t pt-2 max-md:hidden max-md:border-gray-200">
+                                    <summary class="flex cursor-pointer list-none items-center text-xs font-semibold">
+                                        <div class="ml-auto flex flex-row">
+                                            <span>Chi tiết</span>
+                                            <div class="relative ml-2 h-3 w-3">
+                                                <svg class="fill-current absolute top-0 h-3 w-3 rotate-0 stroke-1 opacity-100 transition-all duration-300 group-open:rotate-90 group-open:scale-50 group-open:opacity-0"
+                                                    fill="currentColor" viewBox="0 0 448 512">
+                                                    <path
+                                                        d="M432 256c0 8.8-7.2 16-16 16H240v176c0 8.844-7.156 16.01-16 16.01s-16-7.21-16-16.01V272H32c-8.844 0-16-7.15-16-15.99C16 247.2 23.16 240 32 240h176V64c0-8.844 7.156-15.99 16-15.99s16 7.15 16 15.99v176h176c8.8 0 16 7.2 16 16">
+                                                    </path>
+                                                </svg>
+                                                <svg class="fill-current absolute top-0 h-3 w-3 -rotate-90 stroke-1 opacity-0 transition-all duration-300 group-open:rotate-0 group-open:opacity-100"
+                                                    fill="currentColor" viewBox="0 0 448 512">
+                                                    <path
+                                                        d="M432 256c0 8.8-7.2 16-16 16H32c-8.844 0-16-7.15-16-15.99C16 247.2 23.16 240 32 240h384c8.8 0 16 7.2 16 16">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </summary>
+                                    <div class="mt-2">
+                                        {!! Str::limit($deal->short_description, 80) !!}
+                                    </div>
+                                </details>
+                            </div>
+                        @empty
+                            <p>Hiện chưa có deal nào.</p>
+                        @endforelse
+
                     </div>
                 </div>
                 <div class="[grid-area:content]" bis_skin_checked="1">
@@ -185,6 +291,17 @@
             const shopLink = document.getElementById('offerModalShopLink');
             const closeBtn = modal.querySelector('[data-offer-close]');
 
+            // Deal modal elements
+            const dealModal = document.querySelector('[data-deal-modal]');
+            const dealLogoEl = document.getElementById('dealModalLogo');
+            const dealStoreEl = document.getElementById('dealModalStore');
+            const dealTitleEl = document.getElementById('dealModalTitle');
+            const dealCodeWrap = document.getElementById('dealModalCodeWrap');
+            const dealCodeEl = document.getElementById('dealModalCode');
+            const dealCopyBtn = document.getElementById('dealModalCopyBtn');
+            const dealShopLink = document.getElementById('dealModalShopLink');
+            const dealCloseBtn = dealModal.querySelector('[data-deal-close]');
+
             let currentCode = '';
 
             function openModal(data) {
@@ -207,6 +324,23 @@
                 modal.classList.remove('flex');
             }
 
+            function openDealModal(data) {
+                dealLogoEl.src = data.logo || '';
+                dealStoreEl.textContent = data.store || '';
+                dealTitleEl.textContent = data.offerName || '';
+                dealShopLink.href = data.url || '#';
+                // dealShopLink.textContent = data.store || 'Shop';
+
+                dealCodeWrap.style.display = 'none'; // Deal không có code
+
+                dealModal.classList.remove('hidden');
+                dealModal.classList.add('flex');
+            }
+
+            function closeModalDeal() {
+                dealModal.classList.add('hidden');
+                dealModal.classList.remove('flex');
+            }
             copyBtn.addEventListener('click', function() {
                 if (!currentCode) return;
                 navigator.clipboard.writeText(currentCode).then(() => {
@@ -219,6 +353,10 @@
             closeBtn.addEventListener('click', closeModal);
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) closeModal();
+            });
+            dealCloseBtn.addEventListener('click', closeModalDeal);
+            dealModal.addEventListener('click', (e) => {
+                if (e.target === dealModal) closeModalDeal();
             });
 
             // Desktop: Show Code <a> -- không preventDefault
@@ -260,23 +398,80 @@
                     }
                 });
             });
+            // Deal: Show popup (desktop)
+            document.querySelectorAll('[data-deal-show]').forEach((el) => {
+                el.addEventListener('click', function() {
+                    const data = {
+                        popupUrl: this.dataset.popupUrl,
+                        store: this.dataset.dealStore,
+                        offerName: this.dataset.dealName,
+                        code: '', // Deal không có code
+                        url: this.dataset.dealUrl,
+                        logo: this.dataset.dealLogo,
+                        id: this.dataset.dealId,
+                    };
+                    window.open(data.popupUrl, '_blank', 'noopener');
+                    window.location = data.url;
+                });
+            });
+
+            // Deal: Mobile click toàn card
+            document.querySelectorAll('[data-deal-card]').forEach((card) => {
+                card.addEventListener('click', function(e) {
+                    if (window.innerWidth < 768) {
+                        e.preventDefault();
+                        const data = {
+                            store: this.dataset.dealStore,
+                            offerName: this.dataset.dealName,
+                            code: '',
+                            url: this.dataset.dealUrl,
+                            logo: this.dataset.dealLogo,
+                            id: this.dataset.dealId,
+                            popupUrl: this.dataset.popupUrl,
+                        };
+                        window.open(data.popupUrl, '_blank', 'noopener');
+                        window.location = data.url;
+                    }
+                });
+            });
 
             // Auto mở modal khi trang được mở với ?show=id
             (function autoOpenFromQuery() {
                 const params = new URLSearchParams(window.location.search);
                 const id = params.get('show');
+                const type = params.get('type');
                 if (!id) return;
-                const trigger = document.querySelector('[data-offer-show][data-offer-id="' + id + '"]') ||
-                    document.querySelector('[data-offer-card][data-offer-id="' + id + '"]');
+                // const trigger = document.querySelector('[data-offer-show][data-offer-id="' + id + '"]') ||
+                //     document.querySelector('[data-offer-card][data-offer-id="' + id + '"]');
+                if (type === 'deal') {
+                    trigger = document.querySelector('[data-deal-show][data-deal-id="' + id + '"]') ||
+                        document.querySelector('[data-deal-card][data-deal-id="' + id + '"]');
+                } else {
+                    trigger = document.querySelector('[data-offer-show][data-offer-id="' + id + '"]') ||
+                        document.querySelector('[data-offer-card][data-offer-id="' + id + '"]');
+                }
                 if (!trigger) return;
+                // const data = {
+                //     logo: trigger.dataset.storeLogo,
+                //     store: trigger.dataset.storeName,
+                //     offerName: trigger.dataset.offerName,
+                //     code: trigger.dataset.offerCode,
+                //     url: trigger.dataset.offerUrl,
+                // };
                 const data = {
-                    logo: trigger.dataset.storeLogo,
-                    store: trigger.dataset.storeName,
-                    offerName: trigger.dataset.offerName,
-                    code: trigger.dataset.offerCode,
-                    url: trigger.dataset.offerUrl,
+                    logo: trigger.dataset.dealLogo || trigger.dataset.storeLogo,
+                    store: trigger.dataset.dealStore || trigger.dataset.storeName,
+                    offerName: trigger.dataset.dealName || trigger.dataset.offerName,
+                    code: trigger.dataset.dealCode || trigger.dataset.offerCode,
+                    url: trigger.dataset.dealUrl || trigger.dataset.offerUrl,
                 };
-                setTimeout(() => openModal(data), 50);
+                setTimeout(() => {
+                    if (type === 'deal') {
+                        openDealModal(data);
+                    } else {
+                        openModal(data);
+                    }
+                }, 50);
             })();
         });
     </script>

@@ -24,7 +24,7 @@
                             bg-dynamic flex items-center justify-center"
                                 style="--dynamic: {{ $store->brand_color ?? '#ffffff' }};">
                                 <img src="{{ asset('storage/' . $store->image) }}" alt="{{ $store->name }}"
-                                    class="h-full w-full object-cover" width="86" height="86" loading="lazy"
+                                    class="md-h-w-full object-cover" width="86" height="86" loading="lazy"
                                     onerror="this.src='{{ asset('images/placeholder-store.png') }}';">
                             </div>
 
@@ -57,6 +57,7 @@
                                     : asset('images/placeholder-store.png');
                             $offerText = $offer->offer ?: $offer->code ?: 'Offer';
                             $offerDesc = $offer->description ?: $offerText;
+                            $offerColor = $offer->color ?: '#FFFFFF';
                         @endphp
 
                         <li class="relative flex h-32 flex-col md:h-auto">
@@ -65,7 +66,7 @@
                                 aria-label="{{ $storeName }} {{ $offerText }}">
                                 <img src="{{ $storeImg }}" alt="{{ $storeName }} {{ $offerText }}"
                                     class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
-                                    style="--dynamic:#ffffff" width="300" height="130" loading="lazy"
+                                    style="--dynamic:{{ $offerColor }}" width="300" height="130" loading="lazy"
                                     onerror="this.src='{{ asset('images/placeholder-store.png') }}'">
                                 <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
                                     <div>
@@ -86,6 +87,52 @@
                                     <img class="-mb-1 -ml-1 h-4 w-4" src="/svg/images/cashback-bolt.svg" alt=""
                                         role="presentation" width="16" height="16">
                                     {{ Str::limit($offerText, 20) }}
+                                </p>
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+                <ul class="grid grid-cols-1 gap-4 md:grid-cols-4 lg:grid-cols-5">
+                    @foreach ($latestDeals as $deal)
+                        @php
+                            $dealSlug = $store->slug ?? null;
+                            $dealName = $store->name ?? 'Store';
+                            $dealImg =
+                                $deal && $deal->image
+                                    ? asset('storage/' . $deal->image)
+                                    : asset('images/placeholder-store.png');
+                            $dealText = $deal->name ?: 'Deal';
+                            $dealDesc = $deal->short_description;
+                            $dealColor = $deal->color ?: '#FFFFFF';
+                        @endphp
+                        <li class="relative flex h-32 flex-col md:h-auto">
+                            <a href="{{ $dealSlug ? route('view.index', ['slug' => $dealSlug]) : '#' }}"
+                                class="relative mb-5 block flex h-full cursor-pointer overflow-hidden bg-white md:h-auto md:min-h-[278px] md:flex-col md:rounded-xl md:border lg:h-32 lg:flex-col"
+                                aria-label="{{ $dealName }}">
+                                <img src="{{ $dealImg }}" alt="{{ $offerText }}"
+                                    class="relative flex flex aspect-video max-h-full max-w-36 shrink-0 flex-col items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-dynamic object-contain px-4 capitalize md:max-w-full md:rounded-none md:border-0 md:px-8"
+                                    style="--dynamic:{{ $dealColor }}" width="300" height="130" loading="lazy"
+                                    onerror="this.src='{{ asset('images/placeholder-store.png') }}'">
+                                <div class="relative flex h-full flex-col justify-between px-2 py-0 md:py-2">
+                                    <div>
+                                        <h3 class="text-xs font-bold uppercase tracking-wide md:mt-2">{{ $dealText }}
+                                        </h3>
+                                        {{-- <p
+                                            class="my-2 line-clamp-2 font-proxima text-base capitalize leading-5 md:mb-auto md:line-clamp-3">
+                                            
+                                        </p> --}}
+                                        {!! Str::limit(strip_tags($dealDesc), 80) !!}
+                                    </div>
+                                    <p
+                                        class="mt-2 self-start rounded-full bg-gray-100 px-4 py-1.5 text-xs font-bold lg:mb-1">
+                                        {{ Str::limit($dealName, 24) }}
+                                    </p>
+                                </div>
+                                <p
+                                    class="absolute left-2 top-2 flex rounded border border-solid border-[#E0E0E0] bg-white px-2 py-[3px] text-xs font-bold">
+                                    <img class="-mb-1 -ml-1 h-4 w-4" src="/svg/images/cashback-bolt.svg" alt=""
+                                        role="presentation" width="16" height="16">
+                                    Deal
                                 </p>
                             </a>
                         </li>

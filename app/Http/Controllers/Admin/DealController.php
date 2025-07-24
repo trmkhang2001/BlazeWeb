@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Deal;
+use App\Models\DealStore;
 use Illuminate\Http\Request;
 
 class DealController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Deal::with('category');
+        $query = Deal::with(['category', 'store']);
 
         if ($request->filled('keyword')) {
             $keyword = $request->input('keyword');
@@ -29,7 +30,8 @@ class DealController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.deals.create', compact('categories'));
+        $stores = DealStore::approved()->get();
+        return view('admin.deals.create', compact('categories', 'stores'));
     }
 
     public function store(Request $request)
@@ -38,11 +40,14 @@ class DealController extends Controller
             'name' => 'required|string',
             'slug' => 'nullable|string|unique:deals,slug',
             'category_id' => 'nullable|exists:categories,id',
+            'store_id' => 'nullable|exists:deal_stores,id',
             'original_price' => 'nullable|numeric',
             'price' => 'nullable|numeric',
             'url' => 'nullable|url',
             'image' => 'nullable|image',
             'short_description' => 'nullable|string',
+            'description' => 'nullable|string',
+            'color' => 'nullable|string',
             'meta_title' => 'nullable|string',
             'meta_keywords' => 'nullable|string',
             'meta_description' => 'nullable|string',
@@ -63,7 +68,8 @@ class DealController extends Controller
     public function edit(Deal $deal)
     {
         $categories = Category::all();
-        return view('admin.deals.edit', compact('deal', 'categories'));
+        $stores = DealStore::approved()->get();
+        return view('admin.deals.edit', compact('deal', 'categories', 'stores'));
     }
 
     public function update(Request $request, Deal $deal)
@@ -72,11 +78,14 @@ class DealController extends Controller
             'name' => 'required|string',
             'slug' => 'nullable|string|unique:deals,slug,' . $deal->id,
             'category_id' => 'nullable|exists:categories,id',
+            'store_id' => 'nullable|exists:deal_stores,id',
             'original_price' => 'nullable|numeric',
             'price' => 'nullable|numeric',
             'url' => 'nullable|url',
             'image' => 'nullable|image',
             'short_description' => 'nullable|string',
+            'description' => 'nullable|string',
+            'color' => 'nullable|string',
             'meta_title' => 'nullable|string',
             'meta_keywords' => 'nullable|string',
             'meta_description' => 'nullable|string',
