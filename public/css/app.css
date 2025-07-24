@@ -8794,3 +8794,11 @@ summary::-webkit-details-marker {
         height: 100%;
     }
 }
+.logo-ft {
+    height: 160px;
+}
+@media (min-width: 768px) {
+    .logo-ft {
+        height: 260px;
+    }
+}

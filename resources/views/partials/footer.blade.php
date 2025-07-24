@@ -1,7 +1,7 @@
 <footer class="max-w-screen overflow-clip bg-purple-700">
     <div class="flex flex-col place-items-center justify-center overflow-hidden lg:flex-row">
         <img src="/imagery/D2.png"
-            class="relative bottom-3  text-center text-purple-900 lg:bottom-6 lg:right-6 w-auto h-64" alt="">
+            class="relative bottom-3  text-center text-purple-900 lg:bottom-6 lg:right-6 w-auto logo-ft" alt="">
         <img class="relative bottom-6 left-3 max-w-56 lg:bottom-0 lg:left-0 lg:right-6 lg:max-w-96"
             src="/svg/images/rmn-tagline.svg" alt="" role="presentation" loading="lazy" width="224"
             height="52">
