@@ -95,7 +95,9 @@
                 <ul class="grid grid-cols-1 gap-4 md:grid-cols-4 lg:grid-cols-5">
                     @foreach ($latestDeals as $deal)
                         @php
+                            $store = $deal->store;
                             $dealSlug = $store->slug ?? null;
+                            var_dump($dealSlug);
                             $dealName = $store->name ?? 'Store';
                             $dealImg =
                                 $deal && $deal->image
