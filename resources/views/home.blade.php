@@ -97,7 +97,6 @@
                         @php
                             $store = $deal->store;
                             $dealSlug = $store->slug ?? null;
-                            var_dump($dealSlug);
                             $dealName = $store->name ?? 'Store';
                             $dealImg =
                                 $deal && $deal->image
