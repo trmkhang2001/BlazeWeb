@@ -251,7 +251,7 @@
                                 </details>
                             </div>
                         @empty
-                            <p>Hiện chưa có deal nào.</p>
+                            <p>No deal.</p>
                         @endforelse
 
                     </div>
