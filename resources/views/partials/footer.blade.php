@@ -56,6 +56,11 @@
                             </path>
                         </svg> </a>
                 </div>
+                <div class="mb-8 flex lg:mb-0">
+                    <a href="#" class="mr-6 ">Help & Supports</a>
+                    <a href="/privacy-policy" class="mr-6 ">Privacy Policy</a>
+                    <a href="/terms-conditions" class="mr-6 ">Terms & Conditions</a>
+                </div>
             </div>
 
             <span class="font-proxima">
