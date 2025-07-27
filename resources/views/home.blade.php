@@ -8,7 +8,10 @@
 
 
         <div class="mx-auto w-full max-w-xl px-4">
-
+            <p class="mb-12 mt-2 text-center text-xs">
+                When you buy through links on CouponOnTop <a class="underline" href="/terms-conditions" target="_blank">we may
+                    earn a commission.</a>
+            </p>
             <section class="mb-16 md:mb-20">
                 <div class="mb-6 flex flex-wrap justify-between lg:mb-0">
                     <h2 class="mb-4 text-xl font-bold capitalize leading-tight md:leading-normal">
