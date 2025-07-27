@@ -185,12 +185,12 @@
                         @empty
                             <p>No offers available at the moment.</p>
                         @endforelse
-                        @forelse ($deals as $deal)
+                        @forelse ($deals as $dealinfo)
                             <div class="mt-20 border-gray-200 mb-2 min-h-[75px] rounded-lg border px-3 py-3 shadow-lg shadow-gray-200/50 md:px-6 md:shadow-none md:hover:shadow-lg md:hover:shadow-gray-200/50 lg:mb-4 cursor-pointer"
-                                data-deal-id="{{ $deal->id }}" data-deal-name="{{ $deal->name }}"
-                                data-deal-url="{{ $deal->url }}" data-deal-store="{{ $deal->store->name }}"
-                                data-deal-logo="{{ asset('storage/' . $deal->store->image) }}"
-                                data-popup-url="{{ route('view.index', ['slug' => $deal->store->slug]) }}?type=deal&show={{ $deal->id }}">
+                                data-deal-id="{{ $dealinfo->id }}" data-deal-name="{{ $dealinfo->name }}"
+                                data-deal-url="{{ $dealinfo->url }}" data-deal-store="{{ $dealinfo->store->name }}"
+                                data-deal-logo="{{ asset('storage/' . $dealinfo->store->image) }}"
+                                data-popup-url="{{ route('view.index', ['slug' => $dealinfo->store->slug]) }}?type=deal&show={{ $dealinfo->id }}">
 
                                 <div
                                     class="group flex items-center justify-between gap-3 sm:grid sm:items-start sm:grid-cols-[theme(spacing.30)_auto] md:grid-cols-[theme(spacing.30)_auto_theme(spacing.48)] lg:gap-x-6">
@@ -198,7 +198,7 @@
                                         <div class="flex gap-2 w-full">
                                             <div class="flex shrink-0 items-center text-purple-700 text-xl font-extrabold uppercase tracking-tight md:text-3xl lg:tracking-wide"
                                                 style="flex-basis: 20%;">
-                                                {{ $deal->name }}
+                                                {{ $dealinfo->name }}
                                             </div>
                                             <div class="flex flex-col items-start" style="flex-basis: 80%;">
                                                 <span
@@ -207,7 +207,7 @@
                                                 </span>
                                                 <h3
                                                     class="font-sans text-base font-medium capitalize tracking-tight sm:text-[22px] lg:font-semibold lg:leading-normal">
-                                                    {{ $deal->description }}
+                                                    {{ $dealinfo->description }}
                                                 </h3>
                                             </div>
                                         </div>
@@ -215,11 +215,11 @@
 
                                     <!-- Bên phải (Nút Show Code) -->
                                     <div class="btn-deal relative px-5 flex h-10 min-w-[140px] items-center justify-center overflow-hidden rounded-3xl bg-purple-700 text-sm font-bold leading-none tracking-wider text-white md:h-12 md:text-base before:absolute before:-right-5 before:-top-3 before:z-10 before:h-8 before:w-12 before:rotate-45 before:bg-gray-300 after:absolute after:-right-4 after:-top-4 after:h-12 after:w-12 after:rotate-45 after:rounded-full after:bg-gray-200/30 btn-code"
-                                        data-deal-show data-deal-id="{{ $deal->id }}"
-                                        data-deal-name="{{ $deal->name }}" data-deal-url="{{ $deal->url }}"
-                                        data-deal-store="{{ $deal->store->name }}"
-                                        data-deal-logo="{{ asset('storage/' . $deal->image) }}"
-                                        data-popup-url="{{ route('view.index', ['slug' => $deal->store->slug]) }}?type=deal&show={{ $deal->id }}">
+                                        data-deal-show data-deal-id="{{ $dealinfo->id }}"
+                                        data-deal-name="{{ $dealinfo->name }}" data-deal-url="{{ $dealinfo->url }}"
+                                        data-deal-store="{{ $dealinfo->store->name }}"
+                                        data-deal-logo="{{ asset('storage/' . $dealinfo->image) }}"
+                                        data-popup-url="{{ route('view.index', ['slug' => $dealinfo->store->slug]) }}?type=deal&show={{ $dealinfo->id }}">
                                         Get Deal
                                     </div>
                                 </div>
