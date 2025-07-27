@@ -40,4 +40,12 @@ class HomeController extends Controller
 
         return view('home', compact('latestStores', 'latestOffers', 'latestDeals'));
     }
+    public function terms_conditions()
+    {
+        return view('terms');
+    }
+    public function privacy_policy()
+    {
+        return view('privacy');
+    }
 }

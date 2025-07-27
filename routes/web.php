@@ -50,12 +50,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('home');
 // })->name('home');
-Route::get('/terms-conditions', function () {
-    return view('terms');
-})->name('terms');
-Route::get('/privacy-policy', function () {
-    return view('privacy');
-})->name('privacy');
+Route::get('/terms-conditions', [\App\Http\Controllers\HomeController::class, 'terms_conditions'])->name('terms_conditions');
+Route::get('/privacy-policy',  [\App\Http\Controllers\HomeController::class, 'privacy_policy'])->name('privacy');
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/view/{slug?}', [ViewController::class, 'index'])->name('view.index');
 Route::controller(AuthController::class)->group(function () {
