@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Terms & Conditions - The Best Coupons, Promo Codes & Cash Back Offers')
+@section('title', 'Privacy Policy - The Best Coupons, Promo Codes & Cash Back Offers')
 @section('content')
     <section class="container max-lg:max-w-none">
         <h1 class="text-[32px] leading-tight text-gradient mb-9 ">Privacy Policy</h1>
