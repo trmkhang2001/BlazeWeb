@@ -3,17 +3,17 @@
 @section('content')
     <section class="container max-lg:max-w-none">
         <h1 class="text-[32px] leading-tight text-gradient mb-9 ">Terms &amp; Conditions</h1>
-        <div class="content " bis_skin_checked="1">
+        <div class="content" bis_skin_checked="1">
 
             <p class="content_heading">PLEASE READ CAREFULLY.</p>
             <br>
             <p class="content_small">Welcome to CouponOnTop.com, an online deals information provider. By using this Site
-                you
-                consent and agree to the terms and conditions contained in this Agreement. These terms and conditions
+                you consent and agree to the terms and conditions contained in this Agreement. These terms and conditions
                 ("Agreement") applies to the use of the CouponOnTop.com website located at <a class="static_content-link"
                     href="/">CouponOnTop.com</a> (the "Site"). The Site is the property of CouponOnTop.com
-                ("ShipTheDeal", "we", "our", "us", etc.). By using CouponOnTop.com you agree to be legally bound by these
-                terms, which shall take effect immediately on your first use of CouponOnTop.com. If you do not agree to be
+                ("CouponOnTop.com", "we", "our", "us", etc.). By using CouponOnTop.com you agree to be legally bound by
+                these terms, which shall take effect immediately on your first use of CouponOnTop.com. If you do not agree
+                to be
                 legally bound by all the following terms please do not access and/or use CouponOnTop.com.</p>
             <br>
             <p class="content_heading">PRIVACY</p>
@@ -36,11 +36,13 @@
             <br>
             <p class="content_heading">TRADEMARKS</p>
             <br>
-            <p class="content_small">ShipTheDeal® is a United States registered trademark of ShipTheDeal.
-                ShipTheDealtrademarks may not be used in connection with any product or service that is not the property of
-                ShipTheDeal, in any manner that is likely to cause confusion among customers, or in any manner that
-                disparages or discredits ShipTheDeal. You may not use any CouponOnTop.com logo or other proprietary graphic
-                or trademark as part of the link without express written permission. All other trademarks and registered
+            <p class="content_small">CouponOnTop.com® is a United States registered trademark of CouponOnTop.com.
+                CouponOnTop.com trademarks may not be used in connection with any product or service that is not the
+                property of
+                CouponOnTop.com, in any manner that is likely to cause confusion among customers, or in any manner that
+                disparages or discredits CouponOnTop.com. You may not use any CouponOnTop.com logo or other proprietary
+                graphic or trademark as part of the link without express written permission. All other trademarks and
+                registered
                 trademarks mentioned on this Site are properties of their respective owners.</p>
             <br>
             <p class="content_heading">LICENSE AND SITE ACCESS</p>
@@ -62,11 +64,13 @@
             <p class="content_heading">EXTERNAL LINKS</p>
             <br>
             <p class="content_small">The Site may provide links to web sites and access to content, products and services of
-                third parties, including without limitation, ShipTheDealaffiliates and strategic partners and other entities
-                with which our connection consists of only a hyperlink ("Other Sites"). ShipTheDealis not responsible for
-                (a) the availability of, and content provided on, Other Sites, nor does inclusion of any link imply
-                endorsement of the Other Site by ShipTheDeal, or vice versa; (b) third party content accessible through the
-                Site, including opinions, advice, or statements (and you understand that you bear all risks associated with
+                third parties, including without limitation, CouponOnTop.com affiliates and strategic partners and other
+                entities with which our connection consists of only a hyperlink ("Other Sites"). CouponOnTop.com is not
+                responsible
+                for (a) the availability of, and content provided on, Other Sites, nor does inclusion of any link imply
+                endorsement of the Other Site by CouponOnTop.com, or vice versa; (b) third party content accessible through
+                the Site, including opinions, advice, or statements (and you understand that you bear all risks associated
+                with
                 the use of such content); (c) any loss or damage of any sort you may incur from dealing with any third
                 party; or (d) your dealings with any third parties found on or through the Site, including your
                 participation in promotions, the payment for and delivery of goods if any, and any terms, conditions,
@@ -81,18 +85,19 @@
                 provide to you electronically satisfy any legal requirement that such communications be in writing.</p>
             <br>
             <p class="content_small">"User Information" is any information that you send or transmit via e-mail or other
-                means to ShipTheDeal, its webmaster or employees or within a Forum (including, but not limited to, feedback,
-                questions, comments, etc.). ShipTheDeal tdoes not pre-screen User Information, and ShipTheDealhas the right
+                means to CouponOnTop.com, its webmaster or employees or within a Forum (including, but not limited to,
+                feedback, questions, comments, etc.). CouponOnTop.com does not pre-screen User Information, and
+                CouponOnTop.com has the right
                 (but not the obligation) to refuse or remove any User Information that is available through the Site in its
-                sole discretion. ShipTheDeal will store your email ID and other personal information only when provided
-                through 'Subscribe' page. ShipTheDeal will not store any personal information provided through any other
-                page in this site. By using this Site, you hereby grant ShipTheDeal a world-wide, royalty free and
+                sole discretion. CouponOnTop.com will store your email ID and other personal information only when provided
+                through 'Subscribe' page. CouponOnTop.com will not store any personal information provided through any other
+                page in this site. By using this Site, you hereby grant CouponOnTop.com a world-wide, royalty free and
                 non-exclusive license to: (a) use, reproduce, copy, modify, transmit, adapt, publish, translate, reformat,
                 create derivative works from, distribute, publicly perform, and publicly display such User Information (in
                 whole or in part) and to incorporate it in other works in any form, media, or technology now known or later
                 developed; (b) publish your name in connection with the User Information; and (c) sublicense such rights to
-                ShipTheDeal' subsidiaries, affiliates, and partners. However, your personally identifiable information will
-                be treated in accordance with ShipTheDeal's Privacy Policy.</p>
+                CouponOnTop.com's subsidiaries, affiliates, and partners. However, your personally identifiable information
+                will be treated in accordance with CouponOnTop.com's Privacy Policy.</p>
             <br>
             <p class="content_small">While CouponOnTop.com takes reasonable steps to safeguard and to prevent unauthorized
                 access to your personal information, we cannot be responsible for the acts of those who gain unauthorized
@@ -134,8 +139,9 @@
                 information, we cannot be responsible for the change of information at third party sites/shops offers
                 including but not limited to rebate information, pricing, availability or fitness for use. The
                 CouponOnTop.com does not warrant that functions contained in CouponOnTop.com content will be uninterrupted
-                or error free, that defects will be corrected, or that Deal ShipTheDealAM.com or the server that makes it
-                available are free of viruses or bugs. IN NO EVENT SHALL SHIPTHEDEAO.COM OR ITS AFFILIATES BE LIABLE FOR ANY
+                or error free, that defects will be corrected, or that CouponOnTop.com or the server that makes
+                it available are free of viruses or bugs. IN NO EVENT SHALL CouponOnTop.com OR ITS AFFILIATES BE LIABLE FOR
+                ANY
                 DAMAGES (WHETHER CONSEQUENTIAL, DIRECT, INCIDENTAL, INDIRECT, PUNITIVE, SPECIAL OR OTHERWISE) ARISING OUT
                 OF, OR IN ANY WAY CONNECTED WITH, A THIRD PARTY'S OFFERS , REGARDLESS OF WHETHER SUCH DAMAGES ARE BASED ON
                 CONTRACT, STRICT LIABILITY, TORT OR OTHER THEORIES OF LIABILITY, AND ALSO REGARDLESS OF WHETHER
@@ -180,7 +186,7 @@
             <p class="content_heading">CONTACT INFORMATION</p>
             <br>
             <p class="content_small">If you have any questions regarding this Agreement or the Site, please contact
-                ShipTheDeal through <a class="static_content-link" href="contact-us" bis_skin_checked="1">contact us</a>
+                CouponOnTop.com through <a class="static_content-link" href="contact-us" bis_skin_checked="1">contact us</a>
                 page.</p>
             <br>
             <p class="content_small">&nbsp;</p>
@@ -188,4 +194,5 @@
 
         </div>
     </section>
+
 @endsection
